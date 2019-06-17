@@ -12,24 +12,54 @@ and open the template in the editor.
     <h:head>
         <title>Tela de Venda</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link type="text/css" rel="stylesheet" media="screen" href="Estilos/estiloPDV.css" />
     </h:head>
     <body>
+        <div id="todo">
         <div id="topo">
             <h:form>
                 <p:commandButton action="TelaOpcoes" value="Inicio"/>                
             </h:form>
         </div>
-        <div id="Adicionar">
-            <p:panel style="margin: 20px">
-                Código: <p:inputText id="cod" value="#{pDVControle.adicionarProduto()}">
+        <div id="Adicionar">            
+            <p:panel id="add" >
+                Código: <p:inputText id="cod" value="#{pDVControle.quantidade}">
                     <f:validateDoubleRange for="cod" maximum="13" />
                 </p:inputText><br/>
-                Quantidade: <p:inputText id="quant" value="#{pDVControle.adicionarProduto()}" validatorMessage="Só numeos">
+                Quantidade: <p:inputText id="quant" value="#{pDVControle.quantidade}" validatorMessage="Só numeos">
                     <f:validateDoubleRange for="quant" minimum="1" />
                 </p:inputText>
-            </p:panel>           
+                <p:commandButton value="Adicionar" action="#{pDVControle.adicionarProduto()}"/>               
+            </p:panel>
+            <p:panel id="consulta">
+                <p:commandButton/>
+            </p:panel>
+        </div>
+        <div id="ListaPDV">
+            <p:panel  id="lista">
+                <p:dataTable value="#{pDVControle.listaPDV}" var="item">
+                     <p:column headerText="Item">
+                        
+                    </p:column>
+                    <p:column headerText="Descrição">
+                        
+                    </p:column>
+                     <p:column headerText="Quant">
+                        
+                    </p:column>
+                    <p:column headerText="Remover">
+                        <p:commandButton value="X" action="#{pDVControle.removerItem(item)}"/>
+                    </p:column>
+                    
+                </p:dataTable>               
+            </p:panel>
+            <p:panel id="botoes">
+                <p:commandButton value="Finalizar" action="FinalizarVenda"/>
+                <p:commandButton value="Cancelar"/>
+                
+            </p:panel>
         </div>
        
-        
+        </div>
     </body>
 </html>
