@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Tela de Cadastro Produtos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+         <div id="topo">
+            <h:form>
+                <p:commandButton action="TelaOpcoes" value="Inicio"/>                
+            </h:form>
+        </div>
+        <div id="produto">           
+            <p:fieldset legend="Cadastrar Produto" toggleable="true" style="margin-top: 20px">
+                <h:form>
+                Descrição: <p:inputText id="teste" value="#{produtoControle.produto.descricao}"></p:inputText> <br/>               
+                Preço: <p:inputText value="#{produtoControle.produto.preco}"></p:inputText> <br/>
+                Unidade: <p:inputText value="#{produtoControle.produto.und}"></p:inputText> <br/>
+                Quantidade: <p:inputText value="#{produtoControle.produto.quantidade}"></p:inputText> <br/>
+                Cod Barras: <p:inputText value="#{produtoControle.produto.codBarras}"></p:inputText> <br/>
+            </h:form>
+            <h:form style="margin-top: 20px">            
+                <p:commandButton action="#{produtoControle.cadastrarProduto()}" value="CADASTRAR" />
+                <p:commandButton action="#{produtoControle.atualizar()}" value="ATUALIZAR" />
+                <p:commandButton action="#{produtoControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>
+            </h:form>
+            </p:fieldset>
+        </div>
+        <div id="lista">
+            <p:fieldset legend="Estoque" toggleable="true" style="margin-top: 20px">
+            <h:form style="margin: 20px">
+                <p:dataTable value="#{produtoControle.listarEstoque()}" var="p" style="overflow: scroll">
+                     <p:column>
+                        <f:facet name="header">ID</f:facet>
+                        #{p.id_produto}
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">Descriçao</f:facet>
+                        #{p.descricao}
+                    </p:column>
+                     <p:column>
+                        <f:facet name="header">Preço</f:facet>
+                        #{p.preco}
+                    </p:column>
+                     <p:column>
+                        <f:facet name="header">Unidade</f:facet>
+                        #{p.und}
+                    </p:column>
+                     <p:column>
+                        <f:facet name="header">Cod Barras</f:facet>
+                        #{p.quantidade}
+                    </p:column>
+                     <p:column>
+                        <f:facet name="header">Descriçao</f:facet>
+                        #{p.codBarras}
+                    </p:column>
+                     <p:column>
+                        <f:facet name="header">Editar</f:facet>
+                        <p:commandButton action="#{produtoControle.editarProduto(p)}" value="Editar"/>
+                    </p:column>
+                </p:dataTable>                
+            </h:form>                            
+            </p:fieldset>
+        </div>
+    </h:body>
+</html>

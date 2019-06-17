@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Tela de Cadastro Produtos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <div id="topo">
+            <h:form>
+                <p:commandButton action="TelaOpcoes" value="Inicio"/>                
+            </h:form>
+        </div>
+        <div id="produto">
+        <h1>Cadastrar Funcionario</h1>
+        <p:fieldset legend="Cadastro de Funcionário" toggleable="true" style="margin-top: 20px">
+            <h:form>
+                Nome <p:inputText value="#{funcionarioControle.funcAtual.nome}"></p:inputText> <br/>               
+                Usuario: <p:inputText value="#{funcionarioControle.funcAtual.usario}"></p:inputText> <br/>
+                Senha: <p:password value="#{funcionarioControle.funcAtual.senha}"></p:password> <br/>                
+                Repetir Senha: <p:password value="#{funcionarioControle.repetiSenha}"></p:password> <br/>
+                Administrador: <p:selectBooleanCheckbox value="#{funcionarioControle.funcAtual.admin}" itemLabel="Sim" />
+               
+            </h:form>
+        </p:fieldset>
+        <h:form>
+            <p:commandButton action="#{funcionarioControle.cadastrarFuncionario()}" value="CADASTRAR" />
+            <p:commandButton action="#{funcionarioControle.Atualizr()}" value="ATUALIZAR"/>
+            <p:commandButton action="#{funcionarioControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>
+        </h:form>
+        </div>
+        <div id="lista">
+            <p:fieldset legend="Fucionários" toggleable="true" style="margin-top: 20px">
+            <h:form>
+                <p:dataTable value="#{funcionarioControle.listaFunc}" var="f">
+                     <p:column>
+                        <f:facet name="header">ID</f:facet>
+                        #{f.id_funcionario}
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">Nome</f:facet>
+                        #{f.nome}
+                    </p:column>
+                     <p:column>
+                        <f:facet name="header">Usuario</f:facet>
+                        #{f.usario}
+                    </p:column>
+                     <p:column>
+                        <f:facet name="header">Admin</f:facet>
+                        #{f.admin}
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">Editar</f:facet>
+                        <p:commandButton action="#{funcionarioControle.editarFuncionario(f)}" value="Editar"/>
+                    </p:column>
+                </p:dataTable>
+                
+            </h:form>
+            </p:fieldset>
+            
+        </div>
+    </h:body>
+</html>
+
+
