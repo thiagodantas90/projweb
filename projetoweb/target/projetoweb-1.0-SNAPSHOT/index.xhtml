@@ -12,10 +12,11 @@ and open the template in the editor.
     <h:head>
         <title>Tela de Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link type="text/css" rel="stylesheet" media="screen" href="Estilos/generico.css" />
     </h:head>
     <h:body>
         <h1>Autenticação</h1>
-        <p:panel>
+        <p:panel id="topo">
             Usuário: <p:inputText value="#{loginControle.usuario}" label="usuário"/><br/>
             Senha: <p:password value="#{loginControle.senha}" label="Senha"/><br/>
         
