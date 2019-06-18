@@ -10,6 +10,7 @@ package modelos;
  * @author Thiago Dantas
  */
 public class Produto {
+    
     private int id_produto;
     private String descricao;
     private double preco;

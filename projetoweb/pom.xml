@@ -16,6 +16,11 @@
     
     <dependencies>
         <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.3.1.Final</version>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
@@ -41,11 +46,7 @@
             <artifactId>primefaces</artifactId>
             <version>7.0</version>
         </dependency>
-         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.2.5.jre7</version>
-        </dependency>
+        
     </dependencies>
 
     <build>
