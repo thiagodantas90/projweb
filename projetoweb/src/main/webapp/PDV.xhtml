@@ -12,55 +12,60 @@ and open the template in the editor.
     <h:head>
         <title>Tela de Venda</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link type="text/css" rel="stylesheet" media="screen" href="Estilos/estiloPDV.css" />
         <link type="text/css" rel="stylesheet" media="screen" href="Estilos/generico.css" />
     </h:head>
-    <body>
-        <div id="todo">
+    <h:body>
         <div id="topo">
             <h:form>
                 <p:commandButton action="TelaOpcoes" value="Inicio"/>                
             </h:form>
         </div>
-        <div id="adicionarCesta">            
-            <p:panel id="painel" >
-                Código: <p:inputText id="cod" value="#{pDVControle.quantidade}">
-                    <f:validateDoubleRange for="cod" maximum="13" />
-                </p:inputText><br/>
-                Quantidade: <p:inputText id="quant" value="#{pDVControle.quantidade}" validatorMessage="Só numeos">
-                    <f:validateDoubleRange for="quant" minimum="1" />
-                </p:inputText>
-                <p:commandButton value="Adicionar" action="#{pDVControle.adicionarProduto()}"/>               
+        <div id="adicionarCesta">    
+            
+            <p:panel id="painelAdicoina" >
+                <h:form>
+                    Código: <p:inputText id="cod" value="#{pDVControle.quantidade}">
+                        <f:validateDoubleRange for="cod" maximum="13" />
+                    </p:inputText><br/>
+                    Quantidade: <p:inputText id="quant" value="#{pDVControle.quantidade}" validatorMessage="Só numeos">
+                        <f:validateDoubleRange for="quant" minimum="1" />
+                    </p:inputText>                                  
+                </h:form>
             </p:panel>
-            <p:panel id="painel">
-                <p:commandButton/>
-            </p:panel>
+            <p:panel>
+                <h:form>
+                    <p:commandButton value="Adicionar" action="#{pDVControle.adicionarProduto()}"/> 
+                </h:form>
+            </p:panel>                
+            
+ 
         </div>
-        <div id="listaCesta">
-            <p:panel  id="lista">
-                <p:dataTable value="#{pDVControle.listaPDV}" var="item" style="overflow:scroll; overflow:auto">
-                     <p:column headerText="Item">
-                        
-                    </p:column>
-                    <p:column headerText="Descrição">
-                        
-                    </p:column>
-                     <p:column headerText="Quant">
-                        
-                    </p:column>
-                    <p:column headerText="Remover">
-                        <p:commandButton value="X" action="#{pDVControle.removerItem(item)}"/>
-                    </p:column>
-                    
-                </p:dataTable>               
+        <div id="listaCesta">                                      
+            <p:panel  id="painelListaitens">
+                <h:form> 
+                    <p:dataTable value="#{pDVControle.listaPDV}" var="item" style="overflow:scroll; overflow:auto">
+                         <p:column headerText="Item">
+
+                        </p:column>
+                        <p:column headerText="Descrição">
+
+                        </p:column>
+                         <p:column headerText="Quant">
+
+                        </p:column>
+                        <p:column headerText="Remover">
+                            <p:commandButton value="X" action="#{pDVControle.removerItem(item)}"/>
+                        </p:column>                    
+                    </p:dataTable>
+                </h:form> 
             </p:panel>
-            <p:panel id="botoes">
-                <p:commandButton value="Finalizar" action="FinalizarVenda"/>
-                <p:commandButton value="Cancelar"/>
-                
-            </p:panel>
+            <p:panel id="botoesPDV">
+                <h:form>
+                    <p:commandButton value="Finalizar" action="FinalizarVenda"/>
+                    <p:commandButton value="Cancelar"/>
+                </h:form>                               
+            </p:panel> 
         </div>
        
-        </div>
-    </body>
+    </h:body>
 </html>

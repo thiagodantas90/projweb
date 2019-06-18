@@ -14,13 +14,19 @@ and open the template in the editor.
 body{
     background-color: #FFF8DC;
 }
-#produto,#cliente,#funcionario,#listaCliente,#listaFuncionario,#listaProduto{
-    width: 500px;
+#produto,#cliente,#funcionario,#adicionarCesta{
+    width: 400px;
     height: 300px;
     float: left;
 }
-#painel{
+#listaCliente,#listaFuncionario,#listaProdut,#listaCesta{
+    width: 600px;
+    height: 400px;
+    float: left;
+}
+#painelAdicoina,#painelCadastroProduto,#painelClienteCasd,#painelFuncionarioCad,#painelListaFuncionarios,#painelListaProduto,#painelListaitens,#painellistaCliente,#botaoCadCliente,#botoesPDV{
      margin: 20px;
 }
+
 
 

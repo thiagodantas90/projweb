@@ -15,28 +15,31 @@ and open the template in the editor.
         <link type="text/css" rel="stylesheet" media="screen" href="Estilos/generico.css" />
     </h:head>
     <h:body>
-          <div id="topo">
+        <div id="topo">
             <h:form >
                 <p:commandButton action="TelaOpcoes" value="Inicio"/>                
             </h:form>
         </div>
       
         <div id="cliente">
-        <p:fieldset legend="Cadastro de Cliente" toggleable="true" style="margin-top: 20px">
-            <h:form>
-                Nome <p:inputText value="#{clienteControle.clienteAtual.nome}"></p:inputText> <br/>               
-                CPF: <p:inputText value="#{clienteControle.clienteAtual.cpf}"></p:inputText> <br/>
-                Telefone: <p:inputText value="#{clienteControle.clienteAtual.telefone}"></p:inputText> <br/>                
-            </h:form>
-        </p:fieldset>
-        <h:form>
-            <p:commandButton action="#{clienteControle.cadastrarCliente()}" value="CADASTRAR" />
-            <p:commandButton action="#{funcionarioControle.Atualizr()}" value="ATUALIZAR"/>
-            <p:commandButton action="#{clienteControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>
-        </h:form>
-        </div>
+            <p:panel id="painelClienteCasd">
+                <h:form>
+                    Nome: <p:inputText value="#{clienteControle.clienteAtual.nome}"></p:inputText> <br/>               
+                    CPF: <p:inputText value="#{clienteControle.clienteAtual.cpf}"></p:inputText> <br/>
+                    Telefone: <p:inputText value="#{clienteControle.clienteAtual.telefone}"></p:inputText> <br/>                
+                </h:form>
+           
+            </p:panel>
+            <p:panel id="botaoCadCliente">
+                <h:form>
+                   <p:commandButton action="#{clienteControle.cadastrarCliente()}" value="CADASTRAR" />
+                   <p:commandButton action="#{funcionarioControle.Atualizr()}" value="ATUALIZAR"/>
+                   <p:commandButton action="#{clienteControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>
+                </h:form>
+            </p:panel>   
+        </div>                                  
         <div id="listaCliente">
-            <p:fieldset legend="Clientes" toggleable="true" style="margin-top: 20px">
+            <p:panel id="painellistaCliente">
             <h:form>
                 <p:dataTable value="#{clienteControle.listarClientes()}" var="c">
                      <p:column>
@@ -62,7 +65,7 @@ and open the template in the editor.
                 </p:dataTable>
                 
             </h:form>                            
-            </p:fieldset>
+            </p:panel>
             
         </div>
     </h:body>

@@ -21,7 +21,7 @@ and open the template in the editor.
             </h:form>
         </div>
         <div id="produto">           
-            ,<p:panel id="painel">
+            <p:panel id="painelCadastroProduto">
                 <h:form>
                 Descrição: <p:inputText id="teste" value="#{produtoControle.produto.descricao}"></p:inputText> <br/>               
                 Preço: <p:inputText value="#{produtoControle.produto.preco}"></p:inputText> <br/>
@@ -29,48 +29,51 @@ and open the template in the editor.
                 Quantidade: <p:inputText value="#{produtoControle.produto.quantidade}"></p:inputText> <br/>
                 Cod Barras: <p:inputText value="#{produtoControle.produto.codBarras}"></p:inputText> <br/>
             </h:form>
-            <h:form style="margin-top: 20px">            
-                <p:commandButton action="#{produtoControle.cadastrarProduto()}" value="CADASTRAR" />
-                <p:commandButton action="#{produtoControle.atualizar()}" value="ATUALIZAR" />
-                <p:commandButton action="#{produtoControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>
-            </h:form>
-           </p:panel>>
+            </p:panel>
+            <p:panel>
+                <h:form>            
+                    <p:commandButton action="#{produtoControle.cadastrarProduto()}" value="CADASTRAR" />
+                    <p:commandButton action="#{produtoControle.atualizar()}" value="ATUALIZAR" />
+                    <p:commandButton action="#{produtoControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>
+                 </h:form>
+            </p:panel>                   
         </div>
+        
         <div id="listaProduto">
-            <p:panel id="painel">
-            <h:form style="margin: 20px">
-                <p:dataTable value="#{produtoControle.listarEstoque()}" var="p" style="overflow: scroll">
-                     <p:column>
-                        <f:facet name="header">ID</f:facet>
-                        #{p.id_produto}
-                    </p:column>
-                    <p:column>
-                        <f:facet name="header">Descriçao</f:facet>
-                        #{p.descricao}
-                    </p:column>
-                     <p:column>
-                        <f:facet name="header">Preço</f:facet>
-                        #{p.preco}
-                    </p:column>
-                     <p:column>
-                        <f:facet name="header">Unidade</f:facet>
-                        #{p.und}
-                    </p:column>
-                     <p:column>
-                        <f:facet name="header">Cod Barras</f:facet>
-                        #{p.quantidade}
-                    </p:column>
-                     <p:column>
-                        <f:facet name="header">Descriçao</f:facet>
-                        #{p.codBarras}
-                    </p:column>
-                     <p:column>
-                        <f:facet name="header">Editar</f:facet>
-                        <p:commandButton action="#{produtoControle.editarProduto(p)}" value="Editar"/>
-                    </p:column>
-                </p:dataTable>                
-            </h:form>                            
-            </p:panel>>
+            <p:panel id="painelListaProduto">
+                <h:form>
+                    <p:dataTable value="#{produtoControle.listarEstoque()}" var="p" style="overflow: scroll">
+                         <p:column>
+                            <f:facet name="header">ID</f:facet>
+                            #{p.id_produto}
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">Descriçao</f:facet>
+                            #{p.descricao}
+                        </p:column>
+                         <p:column>
+                            <f:facet name="header">Preço</f:facet>
+                            #{p.preco}
+                        </p:column>
+                         <p:column>
+                            <f:facet name="header">Unidade</f:facet>
+                            #{p.und}
+                        </p:column>
+                         <p:column>
+                            <f:facet name="header">Cod Barras</f:facet>
+                            #{p.quantidade}
+                        </p:column>
+                         <p:column>
+                            <f:facet name="header">Descriçao</f:facet>
+                            #{p.codBarras}
+                        </p:column>
+                         <p:column>
+                            <f:facet name="header">Editar</f:facet>
+                            <p:commandButton action="#{produtoControle.editarProduto(p)}" value="Editar"/>
+                        </p:column>
+                    </p:dataTable>                
+                </h:form>                            
+            </p:panel>
         </div>
     </h:body>
 </html>

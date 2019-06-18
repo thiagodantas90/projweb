@@ -20,9 +20,8 @@ and open the template in the editor.
                 <p:commandButton action="TelaOpcoes" value="Inicio"/>                
             </h:form>
         </div>
-        <div id="funcionario">
-        <h1>Cadastrar Funcionario</h1>
-        <p:panel id="painel">
+        <div id="funcionario">     
+        <p:panel id="painelFuncionarioCad">
             <h:form>
                 Nome <p:inputText value="#{funcionarioControle.funcAtual.nome}"></p:inputText> <br/>               
                 Usuario: <p:inputText value="#{funcionarioControle.funcAtual.usario}"></p:inputText> <br/>
@@ -31,15 +30,18 @@ and open the template in the editor.
                 Administrador: <p:selectBooleanCheckbox value="#{funcionarioControle.funcAtual.admin}" itemLabel="Sim" />
                
             </h:form>
-        </p:panel>>
-        <h:form>
-            <p:commandButton action="#{funcionarioControle.cadastrarFuncionario()}" value="CADASTRAR" />
-            <p:commandButton action="#{funcionarioControle.Atualizr()}" value="ATUALIZAR"/>
-            <p:commandButton action="#{funcionarioControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>
-        </h:form>
+        </p:panel>
+        <p:panel>
+            <h:form>
+                <p:commandButton action="#{funcionarioControle.cadastrarFuncionario()}" value="CADASTRAR" />
+                <p:commandButton action="#{funcionarioControle.Atualizr()}" value="ATUALIZAR"/>
+                <p:commandButton action="#{funcionarioControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>
+            </h:form>
+        </p:panel>
+     
         </div>
         <div id="listaFuncionario">
-            <p:panel id="painel">
+            <p:panel id="painelListaFuncionarios">
             <h:form>
                 <p:dataTable value="#{funcionarioControle.listaFunc}" var="f">
                      <p:column>
