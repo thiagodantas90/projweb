@@ -21,7 +21,7 @@ and open the template in the editor.
             </h:form>
         </div>
       
-        <div id="produto">
+        <div id="cliente">
         <p:fieldset legend="Cadastro de Cliente" toggleable="true" style="margin-top: 20px">
             <h:form>
                 Nome <p:inputText value="#{clienteControle.clienteAtual.nome}"></p:inputText> <br/>               
@@ -35,7 +35,7 @@ and open the template in the editor.
             <p:commandButton action="#{clienteControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>
         </h:form>
         </div>
-        <div id="lista">
+        <div id="listaCliente">
             <p:fieldset legend="Clientes" toggleable="true" style="margin-top: 20px">
             <h:form>
                 <p:dataTable value="#{clienteControle.listarClientes()}" var="c">

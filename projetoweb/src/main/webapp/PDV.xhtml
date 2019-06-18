@@ -22,8 +22,8 @@ and open the template in the editor.
                 <p:commandButton action="TelaOpcoes" value="Inicio"/>                
             </h:form>
         </div>
-        <div id="Adicionar">            
-            <p:panel id="add" >
+        <div id="adicionarCesta">            
+            <p:panel id="painel" >
                 Código: <p:inputText id="cod" value="#{pDVControle.quantidade}">
                     <f:validateDoubleRange for="cod" maximum="13" />
                 </p:inputText><br/>
@@ -32,11 +32,11 @@ and open the template in the editor.
                 </p:inputText>
                 <p:commandButton value="Adicionar" action="#{pDVControle.adicionarProduto()}"/>               
             </p:panel>
-            <p:panel id="consulta">
+            <p:panel id="painel">
                 <p:commandButton/>
             </p:panel>
         </div>
-        <div id="ListaPDV">
+        <div id="listaCesta">
             <p:panel  id="lista">
                 <p:dataTable value="#{pDVControle.listaPDV}" var="item" style="overflow:scroll; overflow:auto">
                      <p:column headerText="Item">

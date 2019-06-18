@@ -14,3 +14,13 @@ and open the template in the editor.
 body{
     background-color: #FFF8DC;
 }
+#produto,#cliente,#funcionario,#listaCliente,#listaFuncionario,#listaProduto{
+    width: 500px;
+    height: 300px;
+    float: left;
+}
+#painel{
+     margin: 20px;
+}
+
+
