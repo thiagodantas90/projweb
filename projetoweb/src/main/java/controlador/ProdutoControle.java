@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author Thiago Dantas
  */
 @ManagedBean
-public class ProdutoControle {
+public class ProdutoControle{
     private Produto produtoAtual;
     private ArrayList<Produto> listaProdutos;
     
@@ -26,6 +26,9 @@ public class ProdutoControle {
         
     }
     public void atualizar(){
+        
+    }
+    public void excluir(Produto p){
         
     }
     public void cancelarCadastro(){

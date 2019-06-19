@@ -64,6 +64,10 @@ and open the template in the editor.
                         <f:facet name="header">Editar</f:facet>
                         <p:commandButton action="#{funcionarioControle.editarFuncionario(f)}" value="Editar"/>
                     </p:column>
+                    <p:column>
+                        <f:facet name="header">Excluir</f:facet>
+                        <p:commandButton action="#{funcionarioControle.excluir(f)}" value="Editar"/>
+                    </p:column>
                 </p:dataTable>
                 
             </h:form>

@@ -33,7 +33,7 @@ and open the template in the editor.
             <p:panel>
                 <h:form>            
                     <p:commandButton action="#{produtoControle.cadastrarProduto()}" value="CADASTRAR" />
-                    <p:commandButton action="#{produtoControle.atualizar()}" value="ATUALIZAR" />
+                    <p:commandButton action="#{produtoControle.atualizar()}" value="ATUALIZAR" />                   
                     <p:commandButton action="#{produtoControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>
                  </h:form>
             </p:panel>                   
@@ -70,6 +70,10 @@ and open the template in the editor.
                          <p:column>
                             <f:facet name="header">Editar</f:facet>
                             <p:commandButton action="#{produtoControle.editarProduto(p)}" value="Editar"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">Excluir</f:facet>
+                            <p:commandButton action="#{produtoControle.excluir(p)}" value="Excluir"/>
                         </p:column>
                     </p:dataTable>                
                 </h:form>                            

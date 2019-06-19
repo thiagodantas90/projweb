@@ -24,10 +24,10 @@ public class ClienteControle {
     public void atualizar(){
         
     }
-    public void cancelarCadastro(){
+    public void excluir(Cliente c){
         
     }
-    public void disabilitarCliente(){
+    public void cancelarCadastro(Cliente c){
         
     }
     public void editarCliente(Cliente c){

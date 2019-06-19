@@ -25,6 +25,9 @@ public class FuncionarioControle {
     public void atualizar(){
         
     }
+    public void excluir(Funcionario f){
+        
+    }
     public void cancelarCadastro(){
         
     }

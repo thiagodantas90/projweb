@@ -6,7 +6,6 @@
 package controlador;
 
 import javax.faces.bean.ManagedBean;
-
 /**
  *
  * @author Thiago Dantas
@@ -18,17 +17,17 @@ public class LoginControle {
     public void autenticar(){
         
     }
-    public String getUsuario() {
-        return usuario;
-    }
+//    public String getUsuario() {
+//        return usuario;
+//    }
 
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
 
-    public String getSenha() {
-        return senha;
-    }
+//    public String getSenha() {
+//        return senha;
+//    }
 
     public void setSenha(String senha) {
         this.senha = senha;
