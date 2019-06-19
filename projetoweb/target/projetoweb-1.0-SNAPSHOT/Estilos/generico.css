@@ -12,17 +12,22 @@ and open the template in the editor.
 }
 
 body{
-    background-color: #FFF8DC;
+    background-image: url(../imagens/back.png);
+   
+    background-repeat: no-repeat;
+    
 }
 #produto,#cliente,#funcionario,#adicionarCesta{
-    width: 400px;
+    width: 600px;
     height: 300px;
     float: left;
+    font-family: inherit;
 }
-#listaCliente,#listaFuncionario,#listaProdut,#listaCesta{
+#listaCliente,#listaFuncionario,#listaProdut,#listaCesta,#listaProduto{
     width: 600px;
     height: 400px;
     float: left;
+    font-family: inherit;
 }
 #painelAdicoina,#painelCadastroProduto,#painelClienteCasd,#painelFuncionarioCad,#painelListaFuncionarios,#painelListaProduto,#painelListaitens,#painellistaCliente,#botaoCadCliente,#botoesPDV{
      margin: 20px;
