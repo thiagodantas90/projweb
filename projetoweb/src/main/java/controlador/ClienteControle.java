@@ -18,6 +18,8 @@ public class ClienteControle {
     private ArrayList listaClientes;
     private Cliente clienteAtual;
     
+    
+  //metodos
     public void cadastrarCliente(){
         
     }
@@ -27,12 +29,14 @@ public class ClienteControle {
     public void excluir(Cliente c){
         
     }
-    public void cancelarCadastro(Cliente c){
+    public void cancelarCadastro(){
         
     }
     public void editarCliente(Cliente c){
         clienteAtual = c;        
     }
+    
+   
     public  ArrayList<Cliente> listarClientes(){
         return listaClientes;
     }
