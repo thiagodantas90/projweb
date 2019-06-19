@@ -5,17 +5,37 @@
  */
 package modelos;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Thiago Dantas
  */
-public class Produto {
+@Entity
+@Table(name = "produto")
+public class Produto implements Serializable{
     
-    private int id_produto;
+    private static final long serialVersionUID = 5270206178668837693L;
+    
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "id_produto")
+    private Integer id_produto;
+    @Column(name = "descricao")
     private String descricao;
+    @Column(name = "preco")
     private double preco;
+    @Column(name = "und")
     private String und;
+    @Column(name = "quantidade")
     private int quantidade;
+    @Column(name = "codbarras")
     private String codBarras;
 
     public Produto(String descricao, double preco, String und, int quantidade, String codBarras) {

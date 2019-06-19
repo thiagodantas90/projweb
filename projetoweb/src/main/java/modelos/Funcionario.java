@@ -5,15 +5,34 @@
  */
 package modelos;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Thiago Dantas
  */
-public class Funcionario {
+@Entity
+@Table(name = "funcionario")
+public class Funcionario implements Serializable{
+
+    private static final long serialVersionUID = 5270206178668837693L;
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "id_funcionario")
     private int id_funcionario;
+    @Column(name = "nome")
     private String nome;
+    @Column(name = "senha")
     private String senha;
+    @Column(name = "usuario")
     private String usario;
+    @Column(name = "admin")
     private boolean admin;
 
     public int getId_funcionario() {

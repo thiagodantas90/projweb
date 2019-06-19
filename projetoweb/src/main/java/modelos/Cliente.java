@@ -5,15 +5,29 @@
  */
 package modelos;
 
+import java.io.Serializable;
+import javax.persistence.*;
+
 /**
  *
  * @author Thiago Dantas
  */
-public class Cliente {
+@Entity
+@Table(name = "cliente")
+public class Cliente implements Serializable{
+    
+    
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "id_cliente")
     private int id_cliente;
+    @Column(name = "nome")
     private String nome;
+    @Column(name = "cpf")
     private String cpf;
+    @Column(name = "telefone")
     private String telefone;
+    
 
     public int getId_cliente() {
         return id_cliente;
