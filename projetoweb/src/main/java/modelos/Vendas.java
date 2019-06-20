@@ -5,18 +5,37 @@
  */
 package modelos;
 
+import java.io.Serializable;
 import java.sql.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import org.hibernate.annotations.Generated;
 
 /**
  *
  * @author Thiago Dantas
  */
-public class Vendas {
+@Entity
+@Table(name = "vendas")
+public class Vendas implements Serializable{
+    
+    private static final long serialVersionUID = 5270206178668837693L;
+    
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "id_venda")
     private int id_venda;
-    private int numVenda;
-    private double valorVenda;
+    @Column(name = "valor_venda")
+    private double valor_venda;
+    @Column(name = "nome_cliente")
     private String nome_cliente;
-    private Date dataVenda;
+    @Column(name = "data_venda")
+    private Date data_venda;
+ 
 
     public int getId_venda() {
         return id_venda;
@@ -26,20 +45,12 @@ public class Vendas {
         this.id_venda = id_venda;
     }
 
-    public int getNumVenda() {
-        return numVenda;
-    }
-
-    public void setNumVenda(int numVenda) {
-        this.numVenda = numVenda;
-    }
-
     public double getValorVenda() {
-        return valorVenda;
+        return valor_venda;
     }
 
     public void setValorVenda(double valorVenda) {
-        this.valorVenda = valorVenda;
+        this.valor_venda = valorVenda;
     }
 
     public String getNome_cliente() {
@@ -51,11 +62,11 @@ public class Vendas {
     }
 
     public Date getDataVenda() {
-        return dataVenda;
+        return data_venda;
     }
 
     public void setDataVenda(Date dataVenda) {
-        this.dataVenda = dataVenda;
+        this.data_venda = dataVenda;
     }
     
     

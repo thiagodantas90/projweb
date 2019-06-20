@@ -19,6 +19,7 @@
         <mapping class="modelos.Produto"/>
         <mapping class="modelos.Cliente"/>
         <mapping class="modelos.Funcionario"/>
+        <mapping class="modelos.Vendas"/>
 
 <!--    <mapping class="tads.eaj.ufrn.aulabanco.Contato"/>-->
             
