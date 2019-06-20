@@ -1,4 +1,4 @@
-package DAOimplemt;
+package DAOimplem;
 
 import DAOinterface.IgenericCliente;
 import java.io.Serializable;
