@@ -6,6 +6,8 @@
 package controlador;
 
 import DAO.ProdutoDAO;
+import DAOimplem.IgenericProdutoImpl;
+import DAOinterface.IgenericProduto;
 import banco.HibernateUtil;
 import modelos.Produto;
 import javax.faces.bean.ManagedBean;
@@ -18,6 +20,7 @@ import org.hibernate.Transaction;
  */
 @ManagedBean
 public class ProdutoControle{
+  
     private ProdutoDAO p;
     private Produto produtoAtual;
     private ArrayList<Produto> listaProdutos;
@@ -26,8 +29,9 @@ public class ProdutoControle{
     public ProdutoControle() {   
         
     }    
-    public void cadastrarProduto(){                               
-       p.cadastrarProduto(produtoAtual);
+    public void cadastrarProduto(){ 
+        IgenericProduto pdao = new IgenericProdutoImpl();
+        pdao.save(produtoAtual);
     }
     public void atualizar(){
         

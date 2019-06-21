@@ -19,11 +19,16 @@ public class ProdutoDAO {
         
     }    
     
-    public void cadastrarProduto(Produto p){     
+    public void cadastrarProduto(Produto p){   
+        
+        
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         Transaction t = sessao.beginTransaction(); 
         sessao.save(p);
         t.commit();
         t.begin();
+        
+        
+        
     }        
 }
