@@ -5,25 +5,28 @@
  */
 package controlador;
 
+import DAO.ProdutoDAO;
+import banco.HibernateUtil;
 import modelos.Produto;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import java.util.ArrayList;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 /**
  *
  * @author Thiago Dantas
  */
 @ManagedBean
 public class ProdutoControle{
+    private ProdutoDAO p;
     private Produto produtoAtual;
     private ArrayList<Produto> listaProdutos;
     
-    public ProdutoControle() {
+    public ProdutoControle() {   
         
-    }
-    
+    }    
     public void cadastrarProduto(){
-        
+        p.cadastrarProduto(produtoAtual);
     }
     public void atualizar(){
         
@@ -32,9 +35,6 @@ public class ProdutoControle{
         
     }
     public void cancelarCadastro(){
-        
-    }
-    public void disabilitarProduto(){
         
     }
     public void editarProduto(Produto p){
@@ -46,13 +46,6 @@ public class ProdutoControle{
         return listaProdutos;
     }
     //metodos
-    public Produto getProduto() {
-        return produtoAtual;
-    }
-
-    public void setProduto(Produto produto) {
-        this.produtoAtual = produto;
-    }
 
     public ArrayList<Produto> getListaProdutos() {
         return listaProdutos;
@@ -62,5 +55,11 @@ public class ProdutoControle{
         this.listaProdutos = listaProdutos;
     }
 
-    
+    public Produto getProdutoAtual() {
+        return produtoAtual;
+    }
+
+    public void setProdutoAtual(Produto produtoAtual) {
+        this.produtoAtual = produtoAtual;
+    }
 }
