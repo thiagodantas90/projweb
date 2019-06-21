@@ -21,12 +21,13 @@ public class ProdutoControle{
     private ProdutoDAO p;
     private Produto produtoAtual;
     private ArrayList<Produto> listaProdutos;
-    
+//    private Session sessao = HibernateUtil.getSessionFactory().openSession();
+//    private Transaction t = sessao.beginTransaction();
     public ProdutoControle() {   
         
     }    
-    public void cadastrarProduto(){
-        p.cadastrarProduto(produtoAtual);
+    public void cadastrarProduto(){                               
+       p.cadastrarProduto(produtoAtual);
     }
     public void atualizar(){
         

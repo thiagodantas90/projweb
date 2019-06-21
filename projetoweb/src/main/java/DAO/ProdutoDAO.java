@@ -13,18 +13,17 @@ import org.hibernate.Transaction;
  *
  * @author francelino
  */
-public class ProdutoDAO {
-    private Session sessao;
+public class ProdutoDAO {        
     
     public ProdutoDAO(){
-        this.sessao = HibernateUtil.getSessionFactory().openSession();
-    }
+        
+    }    
     
-    public void cadastrarProduto(Produto p){
-        Transaction t = sessao.beginTransaction();
-        sessao.saveOrUpdate((Produto) t);
+    public void cadastrarProduto(Produto p){     
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = sessao.beginTransaction(); 
+        sessao.save(p);
         t.commit();
-    }
-    
-    
+        t.begin();
+    }        
 }

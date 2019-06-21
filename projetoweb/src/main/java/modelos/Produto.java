@@ -38,6 +38,15 @@ public class Produto implements Serializable{
     @Column(name = "codbarras")
     private String codBarras;
 
+    public Produto(Integer id_produto, String descricao, double preco, String und, int quantidade, String codBarras) {
+        this.id_produto = id_produto;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.und = und;
+        this.quantidade = quantidade;
+        this.codBarras = codBarras;
+    }
+
     public Produto(String descricao, double preco, String und, int quantidade, String codBarras) {
         this.descricao = descricao;
         this.preco = preco;
@@ -48,14 +57,12 @@ public class Produto implements Serializable{
 
     public Produto() {
     }
-    
-    
 
-    public int getId_produto() {
+    public Integer getId_produto() {
         return id_produto;
     }
 
-    public void setId_produto(int id_produto) {
+    public void setId_produto(Integer id_produto) {
         this.id_produto = id_produto;
     }
 
@@ -98,6 +105,8 @@ public class Produto implements Serializable{
     public void setCodBarras(String codBarras) {
         this.codBarras = codBarras;
     }
+    
+    
     
     
     
