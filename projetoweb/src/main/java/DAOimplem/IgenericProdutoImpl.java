@@ -7,8 +7,8 @@ package DAOimplem;
 
 import DAOinterface.IgenericProduto;
 import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
 import modelos.Produto;
-
 
 public class IgenericProdutoImpl extends GenericDaoImpl<Produto, Integer>implements IgenericProduto {
     public IgenericProdutoImpl(){

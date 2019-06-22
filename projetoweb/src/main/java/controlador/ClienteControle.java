@@ -5,6 +5,8 @@
  */
 package controlador;
 
+import DAOimplem.IgenericClienteImpl;
+import DAOinterface.IgenericCliente;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import modelos.Cliente;
@@ -16,9 +18,8 @@ import modelos.Cliente;
 @ManagedBean
 public class ClienteControle {
     private ArrayList listaClientes;
-    private Cliente clienteAtual;
-    
-    
+    Cliente clienteAtual;
+        
   //metodos
     public void cadastrarCliente(){
         

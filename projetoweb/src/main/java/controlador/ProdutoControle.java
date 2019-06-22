@@ -5,33 +5,30 @@
  */
 package controlador;
 
-import DAO.ProdutoDAO;
+import DAOimplem.GenericDaoImpl;
 import DAOimplem.IgenericProdutoImpl;
 import DAOinterface.IgenericProduto;
-import banco.HibernateUtil;
-import modelos.Produto;
+import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import java.util.ArrayList;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
+import modelos.Produto;
 /**
  *
  * @author Thiago Dantas
  */
 @ManagedBean
+@RequestScoped
 public class ProdutoControle{
-  
-    private ProdutoDAO p;
     private Produto produtoAtual;
-    private ArrayList<Produto> listaProdutos;
-//    private Session sessao = HibernateUtil.getSessionFactory().openSession();
-//    private Transaction t = sessao.beginTransaction();
-    public ProdutoControle() {   
-        
+    private List<Produto> listaProdutos;
+
+    public ProdutoControle() {
     }    
-    public void cadastrarProduto(){ 
-        IgenericProduto pdao = new IgenericProdutoImpl();
-        pdao.save(produtoAtual);
+    public void cadastrarProduto(){
+        IgenericProduto p = new IgenericProdutoImpl();
+        p.save(produtoAtual);
     }
     public void atualizar(){
         
@@ -43,20 +40,17 @@ public class ProdutoControle{
         
     }
     public void editarProduto(Produto p){
-        produtoAtual = p;
-        
-    }
-    
-    public ArrayList<Produto> listarEstoque(){
-        return listaProdutos;
-    }
-    //metodos
-
-    public ArrayList<Produto> getListaProdutos() {
+        produtoAtual = p;        
+    }    
+    public List<Produto> listarEstoque(){   
         return listaProdutos;
     }
 
-    public void setListaProdutos(ArrayList<Produto> listaProdutos) {
+    public List<Produto> getListaProdutos() {
+        return listaProdutos;
+    }
+
+    public void setListaProdutos(List<Produto> listaProdutos) {
         this.listaProdutos = listaProdutos;
     }
 
@@ -66,5 +60,6 @@ public class ProdutoControle{
 
     public void setProdutoAtual(Produto produtoAtual) {
         this.produtoAtual = produtoAtual;
-    }
+    }   
+    
 }

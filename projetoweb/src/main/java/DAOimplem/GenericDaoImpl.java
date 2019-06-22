@@ -17,7 +17,8 @@ import org.hibernate.criterion.Restrictions;
 
 import DAOinterface.IgenericDAO;
 import banco.HibernateUtil;
-
+import javax.faces.bean.ManagedBean;
+@ManagedBean
 public class GenericDaoImpl<T, ID extends Serializable> implements IgenericDAO<T, ID> {
 
     private Class<T> klass;
@@ -27,7 +28,6 @@ public class GenericDaoImpl<T, ID extends Serializable> implements IgenericDAO<T
     }
 
     public GenericDaoImpl(Class<T> klass) {
-
         this.klass = klass;
         this.session = HibernateUtil.getSessionFactory().openSession();
     }
@@ -59,8 +59,7 @@ public class GenericDaoImpl<T, ID extends Serializable> implements IgenericDAO<T
         
       
 
-        query.select(klassRoot)
-        		.where(builder.isNull(klassRoot.get("dataRemocao")));
+        query.select(klassRoot).where(builder.isNull(klassRoot.get("dataRemocao")));
 
         List<T> result = session.createQuery(query).getResultList();
 
@@ -124,7 +123,7 @@ public class GenericDaoImpl<T, ID extends Serializable> implements IgenericDAO<T
     public List<T> findAll() {
         return findAll(null);
     }
-
+   
     public List<T> findAll(Order order) {
 
         //this.session = HibernateUtil.getSessionFactory().openSession();
