@@ -21,8 +21,8 @@ public class Cliente implements Serializable{
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "id_cliente")
     private int id_cliente;
-    @Column(name = "nome")
-    private String nome;
+    @Column(name = "nome_cliente")
+    private String nome_cliente;
     @Column(name = "cpf")
     private String cpf;
     @Column(name = "telefone")
@@ -37,14 +37,14 @@ public class Cliente implements Serializable{
         this.id_cliente = id_cliente;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNome_cliente() {
+        return nome_cliente;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome_cliente(String nome_cliente) {
+        this.nome_cliente = nome_cliente;
     }
-
+   
     public String getCpf() {
         return cpf;
     }
@@ -59,6 +59,10 @@ public class Cliente implements Serializable{
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
     
     

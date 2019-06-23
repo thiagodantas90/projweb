@@ -7,7 +7,7 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
+     
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>Tela de Login</title>
@@ -16,15 +16,13 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <h1>Autenticação</h1>
-        <p:panel id="topo">
-            Usuário: <p:inputText value="#{loginControle.usuario}" label="usuário"/><br/>
-            Senha: <p:password value="#{loginControle.senha}" label="Senha"/><br/>
+       
+            Usuário: <h:inputText value="#{loginControle.l.usuario}" label="usuário"/><br/>
+            Senha: <h:inputText value="#{loginControle.l.senha}" label="Senha" /><br/>
         
-        </p:panel>
-        <p:panel>
-            <p:commandButton value="Acessar" action="#{loginControle.autenticar()}"/>
-        </p:panel>
-        
+            <h:commandButton value="Acessar" action="#{loginControle.autenticar()}"/>
+         
+              
     </h:body>
 </html>
 

@@ -1,5 +1,6 @@
 package DAOimplem;
 
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +18,7 @@ import org.hibernate.criterion.Restrictions;
 
 import DAOinterface.IgenericDAO;
 import banco.HibernateUtil;
-import javax.faces.bean.ManagedBean;
-@ManagedBean
+
 public class GenericDaoImpl<T, ID extends Serializable> implements IgenericDAO<T, ID> {
 
     private Class<T> klass;

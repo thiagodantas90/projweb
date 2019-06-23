@@ -35,6 +35,8 @@ public class Vendas implements Serializable{
     private String nome_cliente;
     @Column(name = "data_venda")
     private Date data_venda;
+    @Column(name = "nome_vendedor")
+    private String nome_vendedor;
  
 
     public int getId_venda() {
@@ -67,6 +69,34 @@ public class Vendas implements Serializable{
 
     public void setDataVenda(Date dataVenda) {
         this.data_venda = dataVenda;
+    }
+
+    public double getValor_venda() {
+        return valor_venda;
+    }
+
+    public void setValor_venda(double valor_venda) {
+        this.valor_venda = valor_venda;
+    }
+
+    public Date getData_venda() {
+        return data_venda;
+    }
+
+    public void setData_venda(Date data_venda) {
+        this.data_venda = data_venda;
+    }
+
+    public String getNome_vendedor() {
+        return nome_vendedor;
+    }
+
+    public void setNome_vendedor(String nome_vendedor) {
+        this.nome_vendedor = nome_vendedor;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
     
     

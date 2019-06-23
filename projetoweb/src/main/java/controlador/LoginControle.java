@@ -5,33 +5,70 @@
  */
 package controlador;
 
+import DAOimplem.IgenericFuncionarioImpl;
+import DAOinterface.IgenericFuncionario;
+import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+import modelos.Funcionario;
+import modelos.Login;
 /**
  *
  * @author Thiago Dantas
  */
 @ManagedBean
+
 public class LoginControle {
-    private String usuario, senha;
+    private Login l = new Login();
     
-    public void autenticar(){
-        
-    }
-//    public String getUsuario() {
-//        return usuario;
-//    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-//    public String getSenha() {
-//        return senha;
-//    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public LoginControle(){      
     }
     
+    
+    public String autenticar(){
+        FacesContext context = FacesContext.getCurrentInstance();
+        IgenericFuncionario dao = new IgenericFuncionarioImpl();
+        List<Funcionario> usuarios = dao.listAll();
+
+        for (Funcionario i : usuarios) {
+            if (i.getUsario().equals(l.getUsuario())) {
+                if (i.getSenha().equals(l.getUsuario())) {
+                    if(i.isAdmin() == true){
+                    ExternalContext ec = context.getExternalContext();
+                    HttpSession s = (HttpSession) ec.getSession(true);
+                    s.setAttribute("admin-logado", i);
+                    return "/TelaOpcoes?faces-redirect=true";
+                } else {
+                    ExternalContext ec = context.getExternalContext();
+                    HttpSession s = (HttpSession) ec.getSession(true);
+                    s.setAttribute("usuario-logado", i);
+                    return "/index?faces-redirect=true";
+                    }
+                }
+            }
+        }
+
+        System.out.println("Usuario não encontrado");
+        FacesMessage mensagem = new FacesMessage("Usuario/senha invalidos!");
+        mensagem.setSeverity(FacesMessage.SEVERITY_ERROR);
+        context.addMessage(null, mensagem);
+        return null;
+
+    }  
+    
+    public String redirecionar(){
+        return "CadastroProduto";
+    }
+    public Login getL() {
+        return l;
+    }
+
+    public void setL(Login l) {
+        this.l = l;
+    }
     
 }

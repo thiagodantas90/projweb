@@ -95,10 +95,10 @@ public class Produto implements Serializable{
 
     public void setCodBarras(String codBarras) {
         this.codBarras = codBarras;
+    }            
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
-    
-    
-    
-    
     
 }

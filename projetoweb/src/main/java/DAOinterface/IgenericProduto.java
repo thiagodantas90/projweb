@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package DAOinterface;
-
 import modelos.Produto;
-
 /**
  *
  * @author francelino

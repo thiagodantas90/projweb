@@ -26,8 +26,8 @@ public class Funcionario implements Serializable{
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "id_funcionario")
     private int id_funcionario;
-    @Column(name = "nome")
-    private String nome;
+    @Column(name = "nome_funcionario")
+    private String nome_funcionario;
     @Column(name = "senha")
     private String senha;
     @Column(name = "usuario")
@@ -35,6 +35,14 @@ public class Funcionario implements Serializable{
     @Column(name = "admin")
     private boolean admin;
 
+    public Funcionario(String nome_funcionario, String senha, String usario, boolean admin) {
+        this.nome_funcionario = nome_funcionario;
+        this.senha = senha;
+        this.usario = usario;
+        this.admin = admin;
+    }     
+    
+    
     public int getId_funcionario() {
         return id_funcionario;
     }
@@ -43,13 +51,14 @@ public class Funcionario implements Serializable{
         this.id_funcionario = id_funcionario;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNome_funcionario() {
+        return nome_funcionario;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome_funcionario(String nome_funcionario) {
+        this.nome_funcionario = nome_funcionario;
     }
+
     public String getSenha() {
         return senha;
     }
@@ -72,6 +81,10 @@ public class Funcionario implements Serializable{
 
     public void setAdmin(boolean admin) {
         this.admin = admin;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     

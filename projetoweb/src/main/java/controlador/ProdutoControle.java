@@ -5,15 +5,15 @@
  */
 package controlador;
 
-import DAOimplem.GenericDaoImpl;
+import DAO.ProdutoDAO;
 import DAOimplem.IgenericProdutoImpl;
 import DAOinterface.IgenericProduto;
+
 import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import modelos.Produto;
+
 /**
  *
  * @author Thiago Dantas
@@ -21,13 +21,14 @@ import modelos.Produto;
 @ManagedBean
 @RequestScoped
 public class ProdutoControle{
-    private Produto produtoAtual;
+    private Produto produtoAtual = new Produto();
     private List<Produto> listaProdutos;
-
+   
     public ProdutoControle() {
-    }    
+        
+    }
     public void cadastrarProduto(){
-        IgenericProduto p = new IgenericProdutoImpl();
+        IgenericProduto p = new IgenericProdutoImpl(); 
         p.save(produtoAtual);
     }
     public void atualizar(){
@@ -42,10 +43,9 @@ public class ProdutoControle{
     public void editarProduto(Produto p){
         produtoAtual = p;        
     }    
-    public List<Produto> listarEstoque(){   
+    public List<Produto> listarEstoque(){          
         return listaProdutos;
     }
-
     public List<Produto> getListaProdutos() {
         return listaProdutos;
     }

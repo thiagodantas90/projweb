@@ -22,7 +22,8 @@ public class ClienteControle {
         
   //metodos
     public void cadastrarCliente(){
-        
+        IgenericCliente pdao = new IgenericClienteImpl(); 
+        pdao.save(clienteAtual);
     }
     public void atualizar(){
         

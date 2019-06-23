@@ -1,0 +1,9 @@
+#surefire
+#Sat Jun 22 20:26:12 GFT 2019
+maven.ext.class.path=C\:\\Program Files\\NetBeans 8.2\\java\\maven-nblib\\netbeans-eventspy.jar
+user.dir=D\:\\Users\\Thiago Dantas\\Documents\\GitHub\\projweb\\projetoweb
+file.encoding=UTF-8
+localRepository=C\:\\Users\\Thiago Dantas\\.m2\\repository
+netbeans.deploy=true
+netbeans.deploy.clientUrlPart=/CadastroProduto.xhtml
+basedir=D\:\\Users\\Thiago Dantas\\Documents\\GitHub\\projweb\\projetoweb
