@@ -7,7 +7,7 @@ package controlador;
 
 import DAOimplem.IgenericClienteImpl;
 import DAOinterface.IgenericCliente;
-import java.util.ArrayList;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import modelos.Cliente;
 
@@ -17,29 +17,35 @@ import modelos.Cliente;
  */
 @ManagedBean
 public class ClienteControle {
-    private ArrayList listaClientes;
+    private List listaClientes;
     Cliente clienteAtual;
+
+    public ClienteControle() {
+        listarClientes();
+    }
         
-  //metodos
     public void cadastrarCliente(){
-        IgenericCliente pdao = new IgenericClienteImpl(); 
-        pdao.save(clienteAtual);
+        IgenericCliente cdao = new IgenericClienteImpl(); 
+        cdao.save(clienteAtual);
+        limparCampos();
     }
     public void atualizar(){
-        
+        limparCampos();
     }
     public void excluir(Cliente c){
-        
+        IgenericCliente cdao = new IgenericClienteImpl(); 
+        cdao.delete(clienteAtual);
     }
     public void cancelarCadastro(){
-        
+        limparCampos();
     }
     public void editarCliente(Cliente c){
         clienteAtual = c;        
     }
     
-   
-    public  ArrayList<Cliente> listarClientes(){
+    public  List<Cliente> listarClientes(){
+        IgenericCliente cdao = new IgenericClienteImpl();
+        listaClientes = cdao.findAll();
         return listaClientes;
     }
 
@@ -49,6 +55,18 @@ public class ClienteControle {
 
     public void setClienteAtual(Cliente clienteAtual) {
         this.clienteAtual = clienteAtual;
+    }
+
+    public List getListaClientes() {
+        return listaClientes;
+    }
+
+    public void setListaClientes(List listaClientes) {
+        this.listaClientes = listaClientes;
+    }
+
+    private void limparCampos() {
+        this.clienteAtual = new Cliente();
     }
     
 }

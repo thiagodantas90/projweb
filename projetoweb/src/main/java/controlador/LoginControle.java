@@ -23,7 +23,7 @@ import modelos.Login;
 @ManagedBean
 
 public class LoginControle {
-    private Login l = new Login();
+    private Login l;
     
     public LoginControle(){      
     }
@@ -32,7 +32,7 @@ public class LoginControle {
     public String autenticar(){
         FacesContext context = FacesContext.getCurrentInstance();
         IgenericFuncionario dao = new IgenericFuncionarioImpl();
-        List<Funcionario> usuarios = dao.listAll();
+        List<Funcionario> usuarios = dao.findAll();
 
         for (Funcionario i : usuarios) {
             if (i.getUsario().equals(l.getUsuario())) {

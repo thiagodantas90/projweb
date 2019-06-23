@@ -17,6 +17,7 @@ import org.hibernate.criterion.Order;
 public interface IgenericDAO <T, ID extends Serializable> {
     void save(T object); 
     void delete(T object);
+    void update(T object);
     T findById(ID id);
     List<T> listAll(); 
     List<T> findAllBy(String property, List<?> values); 

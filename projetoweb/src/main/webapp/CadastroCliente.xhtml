@@ -22,55 +22,48 @@ and open the template in the editor.
         </div>
       
         <div id="cliente">
-            <p:panel id="painelClienteCasd">
+            <h:panelGrid>
                 <h:form>
-                    Nome: <p:inputText value="#{clienteControle.clienteAtual.nome}"></p:inputText> <br/>               
-                    CPF: <p:inputText value="#{clienteControle.clienteAtual.cpf}"></p:inputText> <br/>
-                    Telefone: <p:inputText value="#{clienteControle.clienteAtual.telefone}"></p:inputText> <br/>                
+                    Nome: <h:inputText value="#{clienteControle.clienteAtual.nome}"></h:inputText> <br/>               
+                    CPF: <h:inputText value="#{clienteControle.clienteAtual.cpf}"></h:inputText> <br/>
+                    Telefone: <h:inputText value="#{clienteControle.clienteAtual.telefone}"></h:inputText> <br/>                
+                   <h:commandButton action="#{clienteControle.cadastrarCliente()}" value="CADASTRAR" />
+                   <h:commandButton action="#{funcionarioControle.Atualizr()}" value="ATUALIZAR"/>
+                   <h:commandButton action="#{clienteControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>
                 </h:form>
-           
-            </p:panel>
-            <p:panel id="botaoCadCliente">
-                <h:form>
-                   <p:commandButton action="#{clienteControle.cadastrarCliente()}" value="CADASTRAR" />
-                   <p:commandButton action="#{funcionarioControle.Atualizr()}" value="ATUALIZAR"/>
-                   <p:commandButton action="#{clienteControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>
-                </h:form>
-            </p:panel>   
+            </h:panelGrid>
         </div>                                  
         <div id="listaCliente">
-            <p:panel id="painellistaCliente">
+            
             <h:form>
-                <p:dataTable value="#{clienteControle.listarClientes()}" var="c">
-                     <p:column>
+                <h:dataTable value="#{clienteControle.listarClientes()}" var="c">
+                     <h:column>
                         <f:facet name="header">ID</f:facet>
                         #{c.id_cliente}
-                    </p:column>
-                    <p:column>
+                    </h:column>
+                    <h:column>
                         <f:facet name="header">Nome</f:facet>
                         #{c.nome}
-                    </p:column>
-                     <p:column>
+                    </h:column>
+                     <h:column>
                         <f:facet name="header">CPF</f:facet>
                         #{c.cpf}
-                    </p:column>
-                     <p:column>
+                    </h:column>
+                     <h:column>
                         <f:facet name="header">Telefone</f:facet>
                         #{c.telefone}
-                    </p:column>
-                    <p:column>
+                    </h:column>
+                    <h:column>
                         <f:facet name="header">Editar</f:facet>
-                        <p:commandButton action="#{clienteControle.editarCliente(c)}" value="Editar"/>
-                    </p:column>
-                    <p:column>
+                        <h:commandButton action="#{clienteControle.editarCliente(c)}" value="Editar"/>
+                    </h:column>
+                    <h:column>
                         <f:facet name="header">Excluir</f:facet>
-                        <p:commandButton action="#{clienteControle.excluir(c)}" value="Excluir"/>
-                    </p:column>
-                </p:dataTable>
+                        <h:commandButton action="#{clienteControle.excluir(c)}" value="Excluir"/>
+                    </h:column>
+                </h:dataTable>
                 
-            </h:form>                            
-            </p:panel>
-            
+            </h:form>                                        
         </div>
     </h:body>
 </html>

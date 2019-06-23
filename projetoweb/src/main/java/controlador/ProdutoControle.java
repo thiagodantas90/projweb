@@ -12,40 +12,59 @@ import DAOinterface.IgenericProduto;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import modelos.Produto;
 
 /**
  *
  * @author Thiago Dantas
  */
-@ManagedBean
-@RequestScoped
+@ManagedBean (name = "produtoControle")
+@SessionScoped
 public class ProdutoControle{
     private Produto produtoAtual = new Produto();
     private List<Produto> listaProdutos;
    
     public ProdutoControle() {
-        
+        listarEstoque();
     }
     public void cadastrarProduto(){
         IgenericProduto p = new IgenericProdutoImpl(); 
         p.save(produtoAtual);
+        limparCampo();        
     }
-    public void atualizar(){
-        
+    public void atualizar(){//corrigir
+//       IgenericProduto u = new IgenericProdutoImpl(); 
+//        u.update(produtoAtual);
     }
     public void excluir(Produto p){
-        
+        IgenericProduto q = new IgenericProdutoImpl(); 
+        q.delete(p);
+        removeBean("produtoControle");
     }
     public void cancelarCadastro(){
-        
+       limparCampo();
+       removeBean("produtoControle");
     }
     public void editarProduto(Produto p){
         produtoAtual = p;        
     }    
     public List<Produto> listarEstoque(){          
+        IgenericProduto p = new IgenericProdutoImpl(); 
+        listaProdutos= p.findAll();
         return listaProdutos;
     }
+
+    //metodos
+    private void limparCampo() {
+         this.produtoAtual = new Produto();
+    }
+    private void removeBean(String bean){
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove(bean);
+    }
+    
+    //gets e sets
     public List<Produto> getListaProdutos() {
         return listaProdutos;
     }
@@ -60,6 +79,6 @@ public class ProdutoControle{
 
     public void setProdutoAtual(Produto produtoAtual) {
         this.produtoAtual = produtoAtual;
-    }   
+    }  
     
 }

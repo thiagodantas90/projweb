@@ -41,8 +41,19 @@ public class Funcionario implements Serializable{
         this.usario = usario;
         this.admin = admin;
     }     
+
+    public Funcionario(int id_funcionario, String nome_funcionario, String senha, String usario, boolean admin) {
+        this.id_funcionario = id_funcionario;
+        this.nome_funcionario = nome_funcionario;
+        this.senha = senha;
+        this.usario = usario;
+        this.admin = admin;
+    }
     
-    
+    public Funcionario() {
+        
+    }
+
     public int getId_funcionario() {
         return id_funcionario;
     }
@@ -82,10 +93,8 @@ public class Funcionario implements Serializable{
     public void setAdmin(boolean admin) {
         this.admin = admin;
     }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
+    
+    
+    
     
 }

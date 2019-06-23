@@ -20,60 +20,55 @@ and open the template in the editor.
                 <p:commandButton action="TelaOpcoes" value="Inicio"/>                
             </h:form>
         </div>
-        <div id="funcionario">     
-        <p:panel id="painelFuncionarioCad">
+        <div id="funcionario"> 
             <h:form>
-                Nome <p:inputText value="#{funcionarioControle.funcAtual.nome}"></p:inputText> <br/>               
-                Usuario: <p:inputText value="#{funcionarioControle.funcAtual.usario}"></p:inputText> <br/>
-                Senha: <p:password value="#{funcionarioControle.funcAtual.senha}"></p:password> <br/>                
-                Repetir Senha: <p:password value="#{funcionarioControle.repetiSenha}"></p:password> <br/>
-                Administrador: <p:selectBooleanCheckbox value="#{funcionarioControle.funcAtual.admin}" itemLabel="Sim" />
-               
+                <h:panelGrid>
+                
+                    Nome: <h:inputText value="#{funcionarioControle.funcAtual.nome_funcionario}"></h:inputText> <br/>               
+                    Usuario: <h:inputText value="#{funcionarioControle.funcAtual.usario}"></h:inputText> <br/>
+                    Senha: <h:inputSecret id="senha" value="#{funcionarioControle.funcAtual.senha}"></h:inputSecret> <br/>                
+                    Repetir Senha: <h:inputSecret id="repetiSenha" value="#{funcionarioControle.repetiSenha}"></h:inputSecret> <br/>
+                    Administrador: <h:selectBooleanCheckbox value="#{funcionarioControle.funcAtual.admin}"/>                                                     
+                    <h:commandButton action="#{funcionarioControle.cadastrarFuncionario()}" value="CADASTRAR" />
+                    <h:commandButton action="#{funcionarioControle.Atualizr()}" value="ATUALIZAR"/>
+                    <h:commandButton action="#{funcionarioControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>            
+                </h:panelGrid>
             </h:form>
-        </p:panel>
-        <p:panel>
-            <h:form>
-                <p:commandButton action="#{funcionarioControle.cadastrarFuncionario()}" value="CADASTRAR" />
-                <p:commandButton action="#{funcionarioControle.Atualizr()}" value="ATUALIZAR"/>
-                <p:commandButton action="#{funcionarioControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>
-            </h:form>
-        </p:panel>
-     
+           
         </div>
         <div id="listaFuncionario">
-            <p:panel id="painelListaFuncionarios">
+           
             <h:form>
-                <p:dataTable value="#{funcionarioControle.listaFunc}" var="f">
-                     <p:column>
+                <h:dataTable value="#{funcionarioControle.listarFuncionarios()}" var="f" border="1">
+                     <h:column>
                         <f:facet name="header">ID</f:facet>
                         #{f.id_funcionario}
-                    </p:column>
-                    <p:column>
+                    </h:column>
+                    <h:column>
                         <f:facet name="header">Nome</f:facet>
-                        #{f.nome}
-                    </p:column>
-                     <p:column>
+                        #{f.nome_funcionario}
+                    </h:column>
+                     <h:column>
                         <f:facet name="header">Usuario</f:facet>
                         #{f.usario}
-                    </p:column>
-                     <p:column>
+                    </h:column>
+                     <h:column>
                         <f:facet name="header">Admin</f:facet>
                         #{f.admin}
-                    </p:column>
-                    <p:column>
+                    </h:column>
+                    <h:column>
                         <f:facet name="header">Editar</f:facet>
                         <p:commandButton action="#{funcionarioControle.editarFuncionario(f)}" value="Editar"/>
-                    </p:column>
-                    <p:column>
+                    </h:column>
+                    <h:column>
                         <f:facet name="header">Excluir</f:facet>
                         <p:commandButton action="#{funcionarioControle.excluir(f)}" value="Editar"/>
-                    </p:column>
-                </p:dataTable>
-                
-            </h:form>
-            </p:panel>
-            
+                    </h:column>
+                </h:dataTable>                
+            </h:form>            
         </div>
+      
+        
     </h:body>
 </html>
 

@@ -46,6 +46,16 @@ public class Produto implements Serializable{
         this.codBarras = codBarras;
     }
 
+    public Produto(Integer id_produto, String descricao, double preco, String und, int quantidade, String codBarras) {
+        this.id_produto = id_produto;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.und = und;
+        this.quantidade = quantidade;
+        this.codBarras = codBarras;
+    }
+    
+
     public Produto() {
     }
 

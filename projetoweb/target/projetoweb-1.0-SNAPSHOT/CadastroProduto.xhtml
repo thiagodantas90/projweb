@@ -21,63 +21,64 @@ and open the template in the editor.
             </h:form>
         </div>
         <div id="produto">           
-            <p:panel id="painelCadastroProduto">
-                <h:form>
-                    Descrição: <p:inputText id="teste" value="#{produtoControle.produtoAtual.descricao}"></p:inputText> <br/>               
-                    Preço: <p:inputText value="#{produtoControle.produtoAtual.preco}"></p:inputText> <br/>
-                    Unidade: <p:inputText value="#{produtoControle.produtoAtual.und}"></p:inputText> <br/>
-                    Quantidade: <p:inputText value="#{produtoControle.produtoAtual.quantidade}"></p:inputText> <br/>
-                    Cod Barras: <p:inputText value="#{produtoControle.produtoAtual.codBarras}"></p:inputText> <br/>
-            </h:form>
-            </p:panel>
-            <p:panel>
-                <h:form>            
-                    <h:commandButton action="#{produtoControle.cadastrarProduto()}" value="CADASTRAR" />
-                    <p:commandButton action="#{produtoControle.atualizar()}" value="ATUALIZAR" />                   
-                    <p:commandButton action="#{produtoControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>
-                 </h:form>
-            </p:panel>                   
+           
+           <h:form>
+               <h:panelGrid>
+                   Descrição: <h:inputText  value="#{produtoControle.produtoAtual.descricao}"></h:inputText> <br/>               
+                    Preço: <h:inputText value="#{produtoControle.produtoAtual.preco}"></h:inputText> <br/>
+                    Unidade: <h:inputText value="#{produtoControle.produtoAtual.und}"></h:inputText> <br/>
+                    Quantidade: <h:inputText value="#{produtoControle.produtoAtual.quantidade}"></h:inputText> <br/>
+                    Cod Barras: <h:inputText value="#{produtoControle.produtoAtual.codBarras}"></h:inputText> <br/>                                   
+                   
+                    <h:commandButton action="#{produtoControle.cadastrarProduto()}" value="CADASTRAR"/>
+                    <h:commandButton action="#{produtoControle.atualizar()}" value="ATUALIZAR" />                   
+                    <h:commandButton action="#{produtoControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>
+                </h:panelGrid>
+           </h:form>
+                         
         </div>
         
         <div id="listaProduto">
-            <p:panel id="painelListaProduto">
+            
                 <h:form>
-                    <p:dataTable value="#{produtoControle.listarEstoque()}" var="p" style="overflow: scroll">
-                         <p:column>
+                    <h:panelGrid>
+                        <h:dataTable value="#{produtoControle.listarEstoque()}" var="p" border="1" style="overflow: auto">
+                         <h:column>
                             <f:facet name="header">ID</f:facet>
                             #{p.id_produto}
-                        </p:column>
-                        <p:column>
+                        </h:column>
+                        <h:column>
                             <f:facet name="header">Descriçao</f:facet>
                             #{p.descricao}
-                        </p:column>
-                         <p:column>
+                        </h:column>
+                         <h:column>
                             <f:facet name="header">Preço</f:facet>
                             #{p.preco}
-                        </p:column>
-                         <p:column>
+                        </h:column>
+                         <h:column>
                             <f:facet name="header">Unidade</f:facet>
                             #{p.und}
-                        </p:column>
-                         <p:column>
+                        </h:column>
+                         <h:column>
                             <f:facet name="header">Cod Barras</f:facet>
                             #{p.quantidade}
-                        </p:column>
-                         <p:column>
+                        </h:column>
+                         <h:column>
                             <f:facet name="header">Descriçao</f:facet>
                             #{p.codBarras}
-                        </p:column>
-                         <p:column>
+                        </h:column>
+                         <h:column>
                             <f:facet name="header">Editar</f:facet>
-                            <p:commandButton action="#{produtoControle.editarProduto(p)}" value="Editar"/>
-                        </p:column>
-                        <p:column>
+                            <h:commandButton action="#{produtoControle.editarProduto(p)}" value="Editar"/>
+                        </h:column>
+                        <h:column>
                             <f:facet name="header">Excluir</f:facet>
-                            <p:commandButton action="#{produtoControle.excluir(p)}" value="Excluir"/>
-                        </p:column>
-                    </p:dataTable>                
+                            <h:commandButton action="#{produtoControle.excluir(p)}" value="Excluir"/>
+                        </h:column>
+                    </h:dataTable>  
+                  </h:panelGrid>
                 </h:form>                            
-            </p:panel>
+            
         </div>
     </h:body>
 </html>

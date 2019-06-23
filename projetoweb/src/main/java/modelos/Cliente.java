@@ -27,6 +27,15 @@ public class Cliente implements Serializable{
     private String cpf;
     @Column(name = "telefone")
     private String telefone;
+
+    public Cliente() {
+    }
+
+    public Cliente(String nome_cliente, String cpf, String telefone) {
+        this.nome_cliente = nome_cliente;
+        this.cpf = cpf;
+        this.telefone = telefone;
+    }
     
 
     public int getId_cliente() {

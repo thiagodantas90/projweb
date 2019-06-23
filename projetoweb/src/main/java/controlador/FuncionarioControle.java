@@ -5,8 +5,12 @@
  */
 package controlador;
 
-import java.util.ArrayList;
+
+import DAOimplem.IgenericFuncionarioImpl;
+import DAOinterface.IgenericFuncionario;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import modelos.Funcionario;
 
 /**
@@ -14,34 +18,47 @@ import modelos.Funcionario;
  * @author Thiago Dantas
  */
 @ManagedBean
+@SessionScoped
 public class FuncionarioControle {
-    private ArrayList<Funcionario> listaFunc;
+    private List<Funcionario> listaFunc;
     private Funcionario funcAtual;
     private String repetiSenha;
-    
+
+    public FuncionarioControle() {
+        listarFuncionarios();
+    }       
     public void cadastrarFuncionario(){
-        
+        System.out.println(funcAtual.toString());
+        IgenericFuncionario fdao = new IgenericFuncionarioImpl();
+        fdao.save(funcAtual);
+        limparCampos();        
     }
     public void atualizar(){
         
     }
-    public void excluir(Funcionario f){
-        
+    public void excluir(Funcionario f){        
+        IgenericFuncionario fdao = new IgenericFuncionarioImpl();
+        fdao.delete(f);
     }
     public void cancelarCadastro(){
-        
+        limparCampos();
     }
     public void editarFuncionario(Funcionario f){
         funcAtual = f;
     }
-    public void validarSenha(){
-        
+
+    public void listarFuncionarios(){
+        IgenericFuncionario fdao = new IgenericFuncionarioImpl();
+        listaFunc = fdao.findAll();
     }
-    public ArrayList<Funcionario> getListaFunc() {
+    private void limparCampos() {
+        this.funcAtual = new Funcionario();
+    }
+    public List<Funcionario> getListaFunc() {
         return listaFunc;
     }
 
-    public void setListaFunc(ArrayList<Funcionario> listaFunc) {
+    public void setListaFunc(List<Funcionario> listaFunc) {
         this.listaFunc = listaFunc;
     }
 
@@ -60,6 +77,8 @@ public class FuncionarioControle {
     public void setRepetiSenha(String repetiSenha) {
         this.repetiSenha = repetiSenha;
     }
+
+  
     
     
 }
