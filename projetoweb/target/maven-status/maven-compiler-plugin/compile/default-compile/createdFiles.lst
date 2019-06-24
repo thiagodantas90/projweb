@@ -2,7 +2,6 @@ DAO\VendasDAO.class
 DAOimplem\IgenericProdutoImpl.class
 DAO\ProdutoDAO.class
 DAOinterface\IgenericFuncionario.class
-controlador\testesa.class
 controlador\FuncionarioControle.class
 DAOimplem\GenericDaoImpl$2.class
 modelos\Cliente.class

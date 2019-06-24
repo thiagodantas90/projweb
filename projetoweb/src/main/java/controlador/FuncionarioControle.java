@@ -21,14 +21,13 @@ import modelos.Funcionario;
 @SessionScoped
 public class FuncionarioControle {
     private List<Funcionario> listaFunc;
-    private Funcionario funcAtual;
+    private Funcionario funcAtual = new Funcionario();
     private String repetiSenha;
 
     public FuncionarioControle() {
         listarFuncionarios();
     }       
-    public void cadastrarFuncionario(){
-        System.out.println(funcAtual.toString());
+    public void cadastrarFuncionario(){        
         IgenericFuncionario fdao = new IgenericFuncionarioImpl();
         fdao.save(funcAtual);
         limparCampos();        
@@ -47,10 +46,14 @@ public class FuncionarioControle {
         funcAtual = f;
     }
 
-    public void listarFuncionarios(){
+    public List<Funcionario> listarFuncionarios(){
         IgenericFuncionario fdao = new IgenericFuncionarioImpl();
         listaFunc = fdao.findAll();
+        return listaFunc;
     }
+    
+    
+    
     private void limparCampos() {
         this.funcAtual = new Funcionario();
     }

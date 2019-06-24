@@ -17,8 +17,8 @@ and open the template in the editor.
     <h:body>
         <h1>Autenticação</h1>
        
-            Usuário: <h:inputText value="#{loginControle.l.usuario}" label="usuário"/><br/>
-            Senha: <h:inputText value="#{loginControle.l.senha}" label="Senha" /><br/>
+            Usuário: <h:inputText value="#{loginControle.l.usuario}"/><br/>
+            Senha: <h:inputSecret value="#{loginControle.l.senha}"/><br/>
         
             <h:commandButton value="Acessar" action="#{loginControle.autenticar()}"/>
          

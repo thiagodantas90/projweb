@@ -20,9 +20,13 @@ import modelos.Funcionario;
  */
 public class TesteF {
     public static void main(String[] args) {        
-        Funcionario f = new Funcionario("Thiago", "12345", "thiago", true);
-        IgenericFuncionario fdao = new IgenericFuncionarioImpl();
-        fdao.save(f);
-      
+//        Funcionario f = new Funcionario("Thiago", "12345", "thiago", true);
+//        IgenericFuncionario fdao = new IgenericFuncionarioImpl();
+//        fdao.save(f);
+            IgenericFuncionario fdao = new IgenericFuncionarioImpl();
+            List<Funcionario> usuarios = fdao.findAll();
+            for(Funcionario i: usuarios){
+                System.out.println(i.getUsario());
+            }      
     }
 }

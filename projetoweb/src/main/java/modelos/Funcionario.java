@@ -86,15 +86,12 @@ public class Funcionario implements Serializable{
         this.usario = usario;
     }
 
-    public boolean isAdmin() {
+    public boolean getAdmin() {
         return admin;
     }
 
     public void setAdmin(boolean admin) {
         this.admin = admin;
-    }
-    
-    
-    
+    }            
     
 }

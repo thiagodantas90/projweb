@@ -25,7 +25,7 @@ import modelos.Funcionario;
  *
  * @author Thiago Dantas
  */
-@WebFilter(filterName = "LoginFiltro", urlPatterns = {"/TelaOpcoes"})
+@WebFilter(filterName = "LoginFiltro", urlPatterns = {"/"})
         
 public class LoginFiltro implements Filter {
     

@@ -17,18 +17,5 @@ body{
     background-repeat: no-repeat;
     
 }
-#produto,#cliente,#funcionario,#adicionarCesta{
-    width: 200px;
-    height: 200x;
-    float: left;
-    font-family: inherit;
-}
-#listaProduto{
-    width: 400px;
-    height: 200x;
-    float: right;
-    font-family: inherit;
-}
-
 
 

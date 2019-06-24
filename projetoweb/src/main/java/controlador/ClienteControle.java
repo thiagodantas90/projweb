@@ -18,9 +18,9 @@ import modelos.Cliente;
 @ManagedBean
 public class ClienteControle {
     private List listaClientes;
-    Cliente clienteAtual;
-
-    public ClienteControle() {
+    private Cliente clienteAtual = new Cliente();
+    
+    public ClienteControle() {               
         listarClientes();
     }
         

@@ -21,23 +21,23 @@ import modelos.Login;
  * @author Thiago Dantas
  */
 @ManagedBean
-
+@SessionScoped
 public class LoginControle {
     private Login l;
     
     public LoginControle(){      
     }
-    
-    
+        
     public String autenticar(){
         FacesContext context = FacesContext.getCurrentInstance();
         IgenericFuncionario dao = new IgenericFuncionarioImpl();
         List<Funcionario> usuarios = dao.findAll();
 
         for (Funcionario i : usuarios) {
+            System.out.println(i.getUsario());
             if (i.getUsario().equals(l.getUsuario())) {
                 if (i.getSenha().equals(l.getUsuario())) {
-                    if(i.isAdmin() == true){
+                    if(i.getAdmin() == true){
                     ExternalContext ec = context.getExternalContext();
                     HttpSession s = (HttpSession) ec.getSession(true);
                     s.setAttribute("admin-logado", i);
@@ -46,7 +46,7 @@ public class LoginControle {
                     ExternalContext ec = context.getExternalContext();
                     HttpSession s = (HttpSession) ec.getSession(true);
                     s.setAttribute("usuario-logado", i);
-                    return "/index?faces-redirect=true";
+                    return "/TelaOpcoes_1?faces-redirect=true";
                     }
                 }
             }

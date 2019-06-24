@@ -11,6 +11,7 @@ D:\Users\Thiago Dantas\Documents\GitHub\projweb\projetoweb\src\main\java\DAO\Cli
 D:\Users\Thiago Dantas\Documents\GitHub\projweb\projetoweb\src\main\java\DAO\VendasDAO.java
 D:\Users\Thiago Dantas\Documents\GitHub\projweb\projetoweb\src\main\java\DAOinterface\IgenericVendas.java
 D:\Users\Thiago Dantas\Documents\GitHub\projweb\projetoweb\src\main\java\modelos\Cliente.java
+D:\Users\Thiago Dantas\Documents\GitHub\projweb\projetoweb\src\main\java\modelos\ItensCestaPDV.java
 D:\Users\Thiago Dantas\Documents\GitHub\projweb\projetoweb\src\main\java\controlador\PDVControle.java
 D:\Users\Thiago Dantas\Documents\GitHub\projweb\projetoweb\src\main\java\DAOinterface\IgenericFuncionario.java
 D:\Users\Thiago Dantas\Documents\GitHub\projweb\projetoweb\src\main\java\controlador\LoginControle.java
@@ -24,7 +25,6 @@ D:\Users\Thiago Dantas\Documents\GitHub\projweb\projetoweb\src\main\java\control
 D:\Users\Thiago Dantas\Documents\GitHub\projweb\projetoweb\src\main\java\DAO\ProdutoDAO.java
 D:\Users\Thiago Dantas\Documents\GitHub\projweb\projetoweb\src\main\java\modelos\Login.java
 D:\Users\Thiago Dantas\Documents\GitHub\projweb\projetoweb\src\main\java\modelos\Produto.java
-D:\Users\Thiago Dantas\Documents\GitHub\projweb\projetoweb\src\main\java\controlador\testesa.java
 D:\Users\Thiago Dantas\Documents\GitHub\projweb\projetoweb\src\main\java\testes\TesteP_1.java
 D:\Users\Thiago Dantas\Documents\GitHub\projweb\projetoweb\src\main\java\DAOimplem\IgenericClienteImpl.java
 D:\Users\Thiago Dantas\Documents\GitHub\projweb\projetoweb\src\main\java\DAOinterface\IgenericCliente.java

@@ -10,7 +10,7 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
-        <title>Tela de Cadastro Produtos</title>
+        <title>Tela de Cadastro Funcionarios</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link type="text/css" rel="stylesheet" media="screen" href="Estilos/generico.css" />
     </h:head>
@@ -58,11 +58,11 @@ and open the template in the editor.
                     </h:column>
                     <h:column>
                         <f:facet name="header">Editar</f:facet>
-                        <p:commandButton action="#{funcionarioControle.editarFuncionario(f)}" value="Editar"/>
+                        <h:commandButton action="#{funcionarioControle.editarFuncionario(f)}" value="Editar"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">Excluir</f:facet>
-                        <p:commandButton action="#{funcionarioControle.excluir(f)}" value="Editar"/>
+                        <h:commandButton action="#{funcionarioControle.excluir(f)}" value="Excluir"/>
                     </h:column>
                 </h:dataTable>                
             </h:form>            

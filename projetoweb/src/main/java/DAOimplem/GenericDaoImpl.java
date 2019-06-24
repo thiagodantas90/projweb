@@ -40,23 +40,14 @@ public class GenericDaoImpl<T, ID extends Serializable> implements IgenericDAO<T
     public void save(T object) {
         Transaction t = session.beginTransaction();
         session.saveOrUpdate((T) object);
-        t.commit();
-        session.clear();
+        t.commit(); 
         session.close();
-    }
-    @Override
-    public void update(T object) {
-        Transaction t = session.beginTransaction();      
-        session.update((T) object);
-        t.commit();
     }
     
     public void delete(T object) {
         Transaction t = session.beginTransaction();
         session.delete((T) object);
         t.commit();
-        session.clear();
-        session.close();
     }
 
     public List<T> listAll() {

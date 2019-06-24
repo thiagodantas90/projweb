@@ -35,8 +35,7 @@ public class Cliente implements Serializable{
         this.nome_cliente = nome_cliente;
         this.cpf = cpf;
         this.telefone = telefone;
-    }
-    
+    }            
 
     public int getId_cliente() {
         return id_cliente;
@@ -53,7 +52,7 @@ public class Cliente implements Serializable{
     public void setNome_cliente(String nome_cliente) {
         this.nome_cliente = nome_cliente;
     }
-   
+
     public String getCpf() {
         return cpf;
     }
@@ -68,10 +67,6 @@ public class Cliente implements Serializable{
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
     }
     
     
