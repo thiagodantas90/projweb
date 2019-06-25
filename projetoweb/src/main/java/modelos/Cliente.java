@@ -6,6 +6,7 @@
 package modelos;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import javax.persistence.*;
 
 /**
@@ -14,7 +15,11 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "cliente")
+
 public class Cliente implements Serializable{
+    @OneToMany(mappedBy="cliente")
+    private ArrayList<ItensCestaPDV> cesta = new ArrayList<>();
+  
     
     private static final long serialVersionUID = 5270206178668837693L;
     @Id

@@ -20,25 +20,25 @@ and open the template in the editor.
                 <p:commandButton action="TelaOpcoes" value="Inicio"/>                
             </h:form>
         </div>
-        <div id="adicionarCesta">            
-            <h:panelGrid>              
-                <h:form>
-                    Código: <h:inputText id="cod" value="#{pDVControle.codBarras}">
-                    <f:validateDoubleRange for="cod" maximum="13" />
+       
+        <div id="adicionarCesta">                                   
+            <h:form>
+                <h:panelGrid>   
+                    Código: <h:inputText id="cod" value="#{pDVControle.codBarras}">                        
                     </h:inputText><br/>
                     Quantidade: <h:inputText id="quant" value="#{pDVControle.quantItem}" validatorMessage="Só numeros">
-                    <f:validateDoubleRange for="quant" minimum="1" />
-                    </h:inputText>                                  
-                </h:form>
-           </h:panelGrid>
-                <h:form>
-                    <h:panelGrid>
-                        <h:commandButton value="Adicionar" action="#{pDVControle.adicionarProduto()}"/>                
-                        <h:outputLabel value="#{pDVControle.somaTotal}"/>
-                        <h:commandButton value="Finalizar" action="#{pDVControle.finalizarCompra()}"/>
-                        <h:commandButton value="Cancelar"/>
-                    </h:panelGrid>                  
-                </h:form>                
+                        <f:validateDoubleRange for="quant" minimum="1" />
+                    </h:inputText>     
+                </h:panelGrid>
+            </h:form>
+            <h:form>
+                <h:panelGrid>
+                    <h:commandButton value="Adicionar" action="#{pDVControle.adicionarProduto()}"/>                
+                    <h:outputLabel value="#{pDVControle.somaTotal}"/>
+                    <h:commandButton value="Finalizar" action="#{pDVControle.finalizarCompra()}"/>
+                    <h:commandButton value="Cancelar"/>
+                </h:panelGrid>                  
+            </h:form>                
         </div>
         <div id="listaCesta">   
             <h:panelGrid>                           

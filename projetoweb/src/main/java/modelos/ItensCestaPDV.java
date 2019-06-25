@@ -5,11 +5,24 @@
  */
 package modelos;
 
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 /**
  *
  * @author Thiago Dantas
  */
+@Entity
+@Table(name="itesPedido")
 public class ItensCestaPDV extends Produto{
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")  
+    @JoinColumn(name = "funcionario_id")
+    
+    private Cliente cliente;    
+    private Funcionario funcionario;
     private int quantItem;
     private double totalItem;     
 
@@ -37,5 +50,29 @@ public class ItensCestaPDV extends Produto{
     public void setContItem(int contItem) {
         this.quantItem = contItem;
     }         
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
+
+    public int getQuantItem() {
+        return quantItem;
+    }
+
+    public void setQuantItem(int quantItem) {
+        this.quantItem = quantItem;
+    }
     
 }

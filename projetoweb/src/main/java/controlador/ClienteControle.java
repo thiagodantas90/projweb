@@ -30,7 +30,7 @@ public class ClienteControle {
         limparCampos();
     }
     public void atualizar(){
-        limparCampos();
+        //limparCampos();
     }
     public void excluir(Cliente c){
         IgenericCliente cdao = new IgenericClienteImpl(); 

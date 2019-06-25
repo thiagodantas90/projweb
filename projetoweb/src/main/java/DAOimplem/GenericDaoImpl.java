@@ -144,5 +144,11 @@ public class GenericDaoImpl<T, ID extends Serializable> implements IgenericDAO<T
         }
         return results.get(0);
     }
-    
+
+   
+//    public T findByCod(String cod) {
+//        T object = (T) session.get(klass, cod);
+//        return object;
+//    }
+//    
 }

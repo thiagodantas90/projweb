@@ -18,6 +18,7 @@ public interface IgenericDAO <T, ID extends Serializable> {
     void save(T object); 
     void delete(T object);    
     T findById(ID id);
+    //T findByCod(String cod);
     List<T> listAll(); 
     List<T> findAllBy(String property, List<?> values); 
     List<T> findAllBy(String property, List<?> values, Order order); 

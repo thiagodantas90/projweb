@@ -21,7 +21,7 @@ import modelos.Produto;
  * @author Thiago Dantas
  */
 @ManagedBean (name = "produtoControle")
-@SessionScoped
+//@SessionScoped
 public class ProdutoControle{
     private Produto produtoAtual = new Produto();
     private List<Produto> listaProdutos;

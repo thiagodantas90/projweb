@@ -12,6 +12,7 @@ DAOinterface\IgenericVendas.class
 DAOinterface\IgenericProduto.class
 controlador\VendasControle.class
 DAOinterface\IgenericDAO.class
+modelos\ItensCestaPDV.class
 banco\ConectaHibernateMySQL.class
 controlador\ProdutoControle.class
 DAOimplem\IgenericVendasImpl.class
