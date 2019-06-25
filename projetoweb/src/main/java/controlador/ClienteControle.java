@@ -9,6 +9,7 @@ import DAOimplem.IgenericClienteImpl;
 import DAOinterface.IgenericCliente;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import modelos.Cliente;
 
 /**
@@ -16,6 +17,7 @@ import modelos.Cliente;
  * @author Thiago Dantas
  */
 @ManagedBean
+@SessionScoped
 public class ClienteControle {
     private List listaClientes;
     private Cliente clienteAtual = new Cliente();

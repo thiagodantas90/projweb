@@ -23,7 +23,7 @@ import modelos.Login;
 @ManagedBean
 @SessionScoped
 public class LoginControle {
-    private Login l;
+    private Login login;
     
     public LoginControle(){      
     }
@@ -31,12 +31,12 @@ public class LoginControle {
     public String autenticar(){
         FacesContext context = FacesContext.getCurrentInstance();
         IgenericFuncionario dao = new IgenericFuncionarioImpl();
-        List<Funcionario> usuarios = dao.findAll();
+        List<Funcionario> funcionarios = dao.findAll();
 
-        for (Funcionario i : usuarios) {
+        for (Funcionario i : funcionarios) {
             System.out.println(i.getUsario());
-            if (i.getUsario().equals(l.getUsuario())) {
-                if (i.getSenha().equals(l.getUsuario())) {
+            if (i.getUsario().equals(login.getUsuario())) {
+                if (i.getSenha().equals(login.getUsuario())) {
                     if(i.getAdmin() == true){
                     ExternalContext ec = context.getExternalContext();
                     HttpSession s = (HttpSession) ec.getSession(true);
@@ -63,12 +63,12 @@ public class LoginControle {
     public String redirecionar(){
         return "CadastroProduto";
     }
-    public Login getL() {
-        return l;
+    public Login getLogin() {
+        return login;
     }
 
-    public void setL(Login l) {
-        this.l = l;
+    public void setLogin(Login login) {
+        this.login = login;
     }
     
 }

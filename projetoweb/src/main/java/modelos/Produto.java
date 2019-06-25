@@ -23,8 +23,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "produto")
 public class Produto implements Serializable{
-    @ManyToMany(mappedBy = "produtos")
-    private ArrayList<ItensCestaPDV> cesta = new ArrayList<>();
     
     private static final long serialVersionUID = 5270206178668837693L;
     
@@ -120,14 +118,6 @@ public class Produto implements Serializable{
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
-    }
-
-    public ArrayList<ItensCestaPDV> getCesta() {
-        return cesta;
-    }
-
-    public void setPedidos(ArrayList<ItensCestaPDV> cesta) {
-        this.cesta = cesta;
     }
     
 }
