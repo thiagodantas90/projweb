@@ -12,22 +12,22 @@ import DAOinterface.IgenericProduto;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import modelos.Cliente;
 import modelos.ItensCestaPDV;
 import modelos.Produto;
-import org.hibernate.criterion.Order;
 
 /**
  *
  * @author Thiago Dantas
  */
-@ManagedBean
-@SessionScoped
+@ManagedBean(name = "pdv")
+@ViewScoped
 public class PDVControle {   
     private int quantItem;
     private double totalItem = 0, somaTotal = 0;
     private String codBarras;
+    private String codB;
     private ArrayList<ItensCestaPDV> listaPDV = new ArrayList<>();//tabela com os itens adicionados
     private List<Produto> todosProd, todo;//todos os proutos do banco    
     private ItensCestaPDV item = new ItensCestaPDV();//objeto da tabela de itens, será udado para as vendas     
@@ -35,11 +35,15 @@ public class PDVControle {
 
     public PDVControle() {
         inicializar();
+        produtoAtual = procurarProduto(codB);
     }        
     
     public void adicionarProduto(){ 
         //listaPDV.add(item);
-        produtoAtual = procurarProduto(codBarras);
+        
+        
+        System.out.println(codB);
+        System.out.println(produtoAtual);
         if(produtoAtual != null){
             calcularPreco();
             item = new ItensCestaPDV(quantItem, totalItem, produtoAtual.getId_produto(), produtoAtual.getDescricao(), produtoAtual.getPreco(), produtoAtual.getUnd());
@@ -73,9 +77,11 @@ public class PDVControle {
     private void calcularPreco(){
         totalItem = quantItem*produtoAtual.getPreco();
     }
-    private void inicializar(){
+    public void inicializar(){
         IgenericProduto p = new IgenericProdutoImpl();
         todosProd = p.findAll();
+        
+        System.err.println(todosProd);
     }
    
     public  ArrayList<ItensCestaPDV> listarCesta(){
@@ -88,6 +94,7 @@ public class PDVControle {
     }
     
     //gets e sets
+
     public String getCodBarras() {
         return codBarras;
     }
@@ -95,6 +102,15 @@ public class PDVControle {
     public void setCodBarras(String codBarras) {
         this.codBarras = codBarras;
     }
+
+    public List<Produto> getTodo() {
+        return todo;
+    }
+
+    public void setTodo(List<Produto> todo) {
+        this.todo = todo;
+    }
+ 
 
     public ArrayList<ItensCestaPDV> getListaPDV() {
         return listaPDV;
@@ -151,4 +167,14 @@ public class PDVControle {
     public void setSomaTotal(double somaTotal) {
         this.somaTotal = somaTotal;
     }    
+
+    public String getCodB() {
+        return codB;
+    }
+
+    public void setCodB(String codB) {
+        this.codB = codB;
+    }
+    
+    
 }

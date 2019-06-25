@@ -24,18 +24,18 @@ and open the template in the editor.
         <div id="adicionarCesta">                                   
             <h:form>
                 <h:panelGrid>   
-                    Código: <h:inputText id="cod" value="#{pDVControle.codBarras}">                        
+                    Código: <h:inputText id="cod" value="#{pdv.codB}">                        
                     </h:inputText><br/>
-                    Quantidade: <h:inputText id="quant" value="#{pDVControle.quantItem}" validatorMessage="Só numeros">
+                    Quantidade: <h:inputText id="quant" value="#{pdv.quantItem}" validatorMessage="Só numeros">
                         <f:validateDoubleRange for="quant" minimum="1" />
                     </h:inputText>     
                 </h:panelGrid>
             </h:form>
             <h:form>
                 <h:panelGrid>
-                    <h:commandButton value="Adicionar" action="#{pDVControle.adicionarProduto()}"/>                
-                    <h:outputLabel value="#{pDVControle.somaTotal}"/>
-                    <h:commandButton value="Finalizar" action="#{pDVControle.finalizarCompra()}"/>
+                    <h:commandButton value="Adicionar" action="#{pdv.adicionarProduto()}"/>                
+                    <h:outputLabel value="#{pdv.somaTotal}"/>
+                    <h:commandButton value="Finalizar" action="#{pdv.finalizarCompra()}"/>
                     <h:commandButton value="Cancelar"/>
                 </h:panelGrid>                  
             </h:form>                
@@ -43,7 +43,7 @@ and open the template in the editor.
         <div id="listaCesta">   
             <h:panelGrid>                           
                 <h:form> 
-                    <h:dataTable value="#{pDVControle.listarCesta()}" var="item" style="overflow:scroll; overflow:auto">
+                    <h:dataTable value="#{pdv.listarCesta()}" var="item" style="overflow:scroll; overflow:auto">
                          <h:column>
                             <f:facet name="header">Descrição</f:facet>
                             #{item.id_produto}
@@ -70,7 +70,7 @@ and open the template in the editor.
                         </h:column>
                         <h:column>
                             <f:facet name="header">Excluir</f:facet>
-                            <h:commandButton value="X" action="#{pDVControle.removerItem(item)}"/>
+                            <h:commandButton value="X" action="#{pdv.removerItem(item)}"/>
                         </h:column>
                             
                                             
