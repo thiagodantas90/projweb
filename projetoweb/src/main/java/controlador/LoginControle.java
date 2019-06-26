@@ -42,16 +42,18 @@ public class LoginControle {
             if (i.getUsario().equals(login.getUsuario())) {
                 if (i.getSenha().equals(login.getSenha())) {
                     if(i.getAdmin() == true){
-                    ExternalContext ec = context.getExternalContext();
-                    HttpSession s = (HttpSession) ec.getSession(true);
-                    s.setAttribute("admin-logado", i);
+                        ExternalContext ec = context.getExternalContext();
+                        HttpSession s = (HttpSession) ec.getSession(true);
+                        s.setAttribute("admin-logado", i);
                     return "/TelaOpcoes?faces-redirect=true";
-                } else {
-                    ExternalContext ec = context.getExternalContext();
-                    HttpSession s = (HttpSession) ec.getSession(true);
-                    s.setAttribute("usuario-logado", i);
-                    return "/TelaOpcoes_1?faces-redirect=true";
-                    }
+                    }else if(i.getAdmin() == false){
+                        ExternalContext ec = context.getExternalContext();
+                        HttpSession s = (HttpSession) ec.getSession(true);
+                        s.setAttribute("usuario-logado", i);
+                    return "/TelaOpcoes?faces-redirect=true";
+                    }                
+                }else{
+                    
                 }
             }
         }

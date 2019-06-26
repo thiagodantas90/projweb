@@ -27,7 +27,7 @@ import modelos.Produto;
  */
 public class TesteF {
     public static void main(String[] args) {        
-        Funcionario f = new Funcionario("Dantas", "1234", "dantas", false);
+        Funcionario f = new Funcionario("thiago", "1234", "thiago", true);
         IgenericFuncionario fdao = new IgenericFuncionarioImpl();
         fdao.save(f);
 //            IgenericFuncionario fdao = new IgenericFuncionarioImpl();

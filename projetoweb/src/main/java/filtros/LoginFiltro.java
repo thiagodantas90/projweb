@@ -25,7 +25,7 @@ import modelos.Funcionario;
  *
  * @author Thiago Dantas
  */
-@WebFilter(filterName = "LoginFiltro", urlPatterns = {"/CadastroProduto.xhtml"})
+@WebFilter(filterName = "LoginFiltro", urlPatterns = {"/admin/*"})
         
 public class LoginFiltro implements Filter {
     

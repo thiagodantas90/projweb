@@ -17,12 +17,12 @@ import modelos.Produto;
  */
 public class TesteP_1 {
     public static void main(String[] args) {        
-        Produto p = new Produto("Feijão", 3, "kg", 12, "7894561389412");
+        Produto p = new Produto("Feijão", 3, "kg", 12, "1");
         IgenericProduto pdao = new IgenericProdutoImpl(); 
         pdao.save(p);
         //System.out.println(pdao.findById(1).getDescricao()); 
-        ArrayList<Produto> no = new ArrayList<>();
-        no.addAll(pdao.findAll());
-        System.out.println(no.get(1).getDescricao());
+//        ArrayList<Produto> no = new ArrayList<>();
+//        no.addAll(pdao.findAll());
+//        System.out.println(no.get(1).getDescricao());
     }
 }
