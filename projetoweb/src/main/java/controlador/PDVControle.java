@@ -25,6 +25,7 @@ import modelos.adicionarPDV;
  */
 @ManagedBean(name = "pdv")
 @ViewScoped
+
 public class PDVControle{   
     //private int quantItem;
      //private String codBarras;
@@ -49,7 +50,8 @@ public class PDVControle{
         System.out.println(produtoAtual);
         if(produtoAtual != null){
             calcularPreco();
-            item = new ItensCestaPDV(adPr.getQuantProduto(), totalItem, produtoAtual.getId_produto(), produtoAtual.getDescricao(), produtoAtual.getPreco(), produtoAtual.getUnd());
+            item = new ItensCestaPDV(adPr.getQuantProduto(), totalItem, produtoAtual.getId_produto(), produtoAtual.getDescricao(), somaTotal, produtoAtual.getUnd());
+            //Vendas venda, int quantItem, double totalItem, Integer id_produto, String descricao, double preco, String und
             //int contItem, double totalItem, Integer id_produto, String descricao, double preco, String und
             listaPDV.add(item);
             somaTotal = somaTotal + totalItem;
@@ -125,6 +127,7 @@ public class PDVControle{
 
     public void setListaPDV(ArrayList<ItensCestaPDV> listaPDV) {
         this.listaPDV = listaPDV;
+        
     }
 
     public ItensCestaPDV getItem() {

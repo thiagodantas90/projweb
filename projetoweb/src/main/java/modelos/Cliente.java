@@ -17,9 +17,11 @@ import javax.persistence.*;
 @Table(name = "cliente")
 
 public class Cliente implements Serializable{
-     
+    
+    @OneToMany(mappedBy = "Cliente")
     
     private static final long serialVersionUID = 5270206178668837693L;
+       
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "id_cliente")

@@ -14,6 +14,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.persistence.ManyToOne;
 import modelos.Produto;
 
 /**
@@ -23,6 +24,7 @@ import modelos.Produto;
 @ManagedBean (name = "produtoControle")
 @SessionScoped
 public class ProdutoControle{
+ 
     private Produto produtoAtual = new Produto();
     private List<Produto> listaProdutos;
    

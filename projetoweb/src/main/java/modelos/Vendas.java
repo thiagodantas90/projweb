@@ -12,16 +12,29 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.Generated;
-
 /**
  *
  * @author Thiago Dantas
  */
 @Entity
 @Table(name = "vendas")
-public class Vendas implements Serializable{
+public class Vendas implements Serializable{        
+    
+    @ManyToOne
+    @JoinColumn(name="id_cliente")
+    private Cliente cliente;
+    
+    @ManyToOne
+    @JoinColumn(name="id_funcionario")
+    private Funcionario funcionario;
+    
+    @OneToMany(mappedBy = "Vendas")
     
     private static final long serialVersionUID = 5270206178668837693L;
     
@@ -30,14 +43,9 @@ public class Vendas implements Serializable{
     @Column(name = "id_venda")
     private int id_venda;
     @Column(name = "valor_venda")
-    private double valor_venda;
-    @Column(name = "nome_cliente")
-    private String nome_cliente;
+    private double valor_venda;  
     @Column(name = "data_venda")
     private Date data_venda;
-    @Column(name = "nome_vendedor")
-    private String nome_vendedor;
- 
 
     public int getId_venda() {
         return id_venda;
@@ -53,14 +61,6 @@ public class Vendas implements Serializable{
 
     public void setValorVenda(double valorVenda) {
         this.valor_venda = valorVenda;
-    }
-
-    public String getNome_cliente() {
-        return nome_cliente;
-    }
-
-    public void setNome_cliente(String nome_cliente) {
-        this.nome_cliente = nome_cliente;
     }
 
     public Date getDataVenda() {
@@ -87,16 +87,24 @@ public class Vendas implements Serializable{
         this.data_venda = data_venda;
     }
 
-    public String getNome_vendedor() {
-        return nome_vendedor;
-    }
-
-    public void setNome_vendedor(String nome_vendedor) {
-        this.nome_vendedor = nome_vendedor;
-    }
-
     public static long getSerialVersionUID() {
         return serialVersionUID;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
     }
     
     
