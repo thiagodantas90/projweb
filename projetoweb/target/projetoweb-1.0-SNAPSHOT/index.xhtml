@@ -15,14 +15,12 @@ and open the template in the editor.
         <link type="text/css" rel="stylesheet" media="screen" href="Estilos/generico.css" />
     </h:head>
     <h:body>
-        <h1>Autenticação</h1>
-       
-        Usuário: <h:inputText value="#{loginControle.login.usuario}"/><br/>
-        Senha: <h:inputSecret value="#{loginControle.login.senha}"/><br/>
-        
-            <h:commandButton value="Acessar" action="#{loginControle.autenticar()}"/>
-         
-              
+        <h1>Autenticação</h1>        
+        <h:form>                
+            Usuário: <h:inputText value="#{login.login.usuario}"/><br/>
+            Senha: <h:inputSecret value="#{login.login.senha}"/><br/>        
+            <h:commandButton value="Acessar" action="#{login.autenticar()}"/>
+        </h:form>                          
     </h:body>
 </html>
 

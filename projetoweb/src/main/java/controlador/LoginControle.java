@@ -13,6 +13,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.servlet.http.HttpSession;
 import modelos.Funcionario;
 import modelos.Login;
@@ -20,15 +21,18 @@ import modelos.Login;
  *
  * @author Thiago Dantas
  */
-@ManagedBean
-@SessionScoped
+@ManagedBean (name = "login")
+@ViewScoped
 public class LoginControle {
-    private Login login;
+    private Login login = new Login();
     
-    public LoginControle(){      
+    public LoginControle(){
+        
     }
         
     public String autenticar(){
+        System.err.println(login.getUsuario());
+        System.err.println(login.getSenha());
         FacesContext context = FacesContext.getCurrentInstance();
         IgenericFuncionario dao = new IgenericFuncionarioImpl();
         List<Funcionario> funcionarios = dao.findAll();
@@ -36,7 +40,7 @@ public class LoginControle {
         for (Funcionario i : funcionarios) {
             System.out.println(i.getUsario());
             if (i.getUsario().equals(login.getUsuario())) {
-                if (i.getSenha().equals(login.getUsuario())) {
+                if (i.getSenha().equals(login.getSenha())) {
                     if(i.getAdmin() == true){
                     ExternalContext ec = context.getExternalContext();
                     HttpSession s = (HttpSession) ec.getSession(true);
