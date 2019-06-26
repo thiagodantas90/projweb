@@ -20,7 +20,7 @@
         <mapping class="modelos.Cliente"/>
         <mapping class="modelos.Funcionario"/>
         <mapping class="modelos.Vendas"/>
-        <mapping class="modelos.ItensCestaPDV"/>
+<!--        <mapping class="modelos.ItensCestaPDV"/>-->
 
 <!--    <mapping class="tads.eaj.ufrn.aulabanco.Contato"/>-->
             

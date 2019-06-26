@@ -11,9 +11,9 @@ import javax.persistence.Table;
 /**
  *
  * @author Thiago Dantas
- */
-@Entity
-@Table(name="itesPedido")
+// */
+//@Entity
+//@Table(name="itesPedido")
 public class ItensCestaPDV extends Produto{
     
     private Cliente cliente;    

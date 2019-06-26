@@ -17,22 +17,19 @@ and open the template in the editor.
     <h:body>
         <div id="topo">
             <h:form>
-                <p:commandButton action="TelaOpcoes" value="Inicio"/>                
+                <h:commandButton action="TelaOpcoes" value="Inicio"/>                
             </h:form>
         </div>
        
         <div id="adicionarCesta">                                   
             <h:form>
-                <h:panelGrid>   
-                    Código: <h:inputText id="cod" value="#{pdv.codB}">                        
+                <h:panelGrid> 
+                    
+                    Código: <h:inputText value="#{pdv.adPr.codBarras}">                        
                     </h:inputText><br/>
-                    Quantidade: <h:inputText id="quant" value="#{pdv.quantItem}" validatorMessage="Só numeros">
-                        <f:validateDoubleRange for="quant" minimum="1" />
+                    Quantidade: <h:inputText value="#{pdv.adPr.quantProduto}" >                        
                     </h:inputText>     
-                </h:panelGrid>
-            </h:form>
-            <h:form>
-                <h:panelGrid>
+                         
                     <h:commandButton value="Adicionar" action="#{pdv.adicionarProduto()}"/>                
                     <h:outputLabel value="#{pdv.somaTotal}"/>
                     <h:commandButton value="Finalizar" action="#{pdv.finalizarCompra()}"/>
