@@ -58,14 +58,16 @@ public class LoginControle {
             }
         }
 
-        System.out.println("Usuario não encontrado");
+        //System.out.println("Usuario não encontrado");
         FacesMessage mensagem = new FacesMessage("Usuario/senha invalidos!");
         mensagem.setSeverity(FacesMessage.SEVERITY_ERROR);
         context.addMessage(null, mensagem);
         return null;
 
     }  
-    
+    public void logout(){
+        
+    }
     public String redirecionar(){
         return "CadastroProduto";
     }

@@ -16,13 +16,13 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <h:form>            
-                <h:commandButton value="Sair"/>            
+            <h:commandButton value="Sair" action="#{login.logout()}"/>
         <p:panelGrid>
             <p:panel>
                 <p:commandButton  value="PDV" action="PDV"/>
                 <p:commandButton value="Clientes" action="CadastroCliente"/>
-                <p:commandButton value="Funcionarios" action="CadastroFuncionario"/>
-                <p:commandButton value="Produtos" action="CadastroProduto"/>
+                <p:commandButton value="Funcionarios" action="/admin/CadastroFuncionario" rendered="#{sessionScope['admin-logado'] ne null}"/>
+                <p:commandButton value="Produtos" action="/admin/CadastroProduto" rendered="#{sessionScope['admin-logado'] ne null}"/>
                 <p:commandButton value="Vendas" action="Vendas"/>
             </p:panel>
         </p:panelGrid>

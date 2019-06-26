@@ -25,8 +25,7 @@ import modelos.Funcionario;
  *
  * @author Thiago Dantas
  */
-@WebFilter(filterName = "LoginFiltro", urlPatterns = {"/admin/*"})
-        
+@WebFilter(urlPatterns = {"/admin/*"})        
 public class LoginFiltro implements Filter {
     
    
@@ -56,12 +55,12 @@ public class LoginFiltro implements Filter {
 		HttpSession session = ((HttpServletRequest) request).getSession(false);
 		
 		if(session != null){
-			u = (Funcionario) session.getAttribute("admin-logado");
+			u = (Funcionario) session.getAttribute("admin-logado");                        
 		}
 		
 		if (u == null){
 			String contextPath = ((HttpServletRequest) request).getContextPath();
-			((HttpServletResponse) response).sendRedirect(contextPath + "/TelaOpcoes.xhtml");
+			((HttpServletResponse) response).sendRedirect(contextPath + "/index.xhtml");
 		} else {
 			chain.doFilter(request, response);
 		}
