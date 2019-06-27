@@ -14,6 +14,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import modelos.Funcionario;
 import modelos.Login;
@@ -65,8 +66,11 @@ public class LoginControle {
         return null;
 
     }  
-    public void logout(){
-        
+    public String logout(){
+         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+         HttpSession session = request.getSession();
+         session.invalidate();
+         return "index";
     }
     public String redirecionar(){
         return "CadastroProduto";

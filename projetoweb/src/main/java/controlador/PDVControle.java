@@ -14,7 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import modelos.Cliente;
+import modelos.Funcionario;
 import modelos.ItensCestaPDV;
 import modelos.Produto;
 import modelos.adicionarPDV;
@@ -67,7 +69,7 @@ public class PDVControle{
     }
     
     public void finalizarCompra(){
-        
+    
     }    
     public Produto procurarProduto(String cod){
         for(Produto p: todosProd){
@@ -95,7 +97,9 @@ public class PDVControle{
     public  ArrayList<ItensCestaPDV> listarCesta(){
         return listaPDV;
     }
-
+    public void fecharVenda(){
+        
+    }
     public adicionarPDV getAdPr() {
         return adPr;
     }

@@ -12,9 +12,18 @@ and open the template in the editor.
     <h:head>
         <title>Titulo</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link type="text/css" rel="stylesheet" media="screen" href="Estilos/generico.css" />
     </h:head>
     <h:body>
-        
+        <h:form>
+            <h:panelGrid>
+                Total: <h:outputLabel value=""/>
+                Valor:<h:inputText value=""/>
+                <h:commandButton value="Aplicar" />                
+                Troco: <h:outputLabel value=""/>                
+                <h:commandButton value="Finalizar" action="#{pdv.fecharVenda()}"/>                
+            </h:panelGrid>          
+        </h:form>
     </h:body>
 </html>
 
