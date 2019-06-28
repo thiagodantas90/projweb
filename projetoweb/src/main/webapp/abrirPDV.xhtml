@@ -30,11 +30,19 @@ and open the template in the editor.
         </h:form>
         </div>
         <div id="AddCliente">
-            <h:form>                
-                <h3>Insira o CPF para iniciar uma venda</h3>
-                CPF: <p:inputMask mask="999.999.999-99" value="#{pdv.CPF}"/>
-                <h:commandButton action="#{pdv.adicionarCliente()}" value="Abrir"/>
+            <p:panel id="abrirVenda">
+            <h:form> 
+                
+                    
+                        <h3>Insira o CPF para iniciar uma venda</h3><br/>
+                        CPF: <p:inputMask mask="999.999.999-99" value="#{pdv.CPF}"/>
+                        <p:commandButton id="btnAbrir" action="#{pdv.adicionarCliente()}" value="Abrir"/>
+                    
+               
             </h:form>
-        </div>        
+            </p:panel>
+            
+        </div> 
+        
     </h:body>
 </html>

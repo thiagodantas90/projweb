@@ -103,7 +103,8 @@ public class PDVControle{
     
     public String adicionarCliente(){       
         //cTodos.get(0).getCpf();
-        for(Cliente c:cTodos){
+        if(cTodos.size()!=0){
+            for(Cliente c:cTodos){
             if(c.getCpf().equals(CPF)){
                 clienteAtual = c;
                 return "PDV";
@@ -112,6 +113,10 @@ public class PDVControle{
                 return "AvisoCliente";
             }
         }
+        }else{
+            return "AvisoCliente";
+        }
+        
         return null ;
     }
     public String clientePadrao(){

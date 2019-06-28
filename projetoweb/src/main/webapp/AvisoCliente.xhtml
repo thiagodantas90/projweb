@@ -10,20 +10,23 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core" >
     <h:head>
-        <title>TODO supply a title</title>
+        <title>Cliente não encotrado</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
          <link type="text/css" rel="stylesheet" media="screen" href="Estilos/generico.css" />
     </h:head>
     <h:body>
         <div id="AvisoCliente">
+             <p:panel id="avisocliente">
             <h:form>
                 
-            
-            <h3>Cliente não Cadastrado</h3>
-            <h3>Deseja realizar Cadastro?</h3>
-            <h:commandButton value="Sim" action="CadastroCliente"/>
-            <h:commandButton value="Não" action="#{pdv.clientePadrao()}"/>
+               
+                <h3>Cliente não Cadastrado</h3><br/>
+                <h3>Deseja realizar Cadastro?</h3><br/>
+                <p:commandButton value="Sim" action="CadastroCliente" style="margin-left: 10px"/>
+                <p:commandButton value="Não" action="#{pdv.clientePadrao()}"/>
+                
             </h:form>
+                 </p:panel>
         </div>
     </h:body>
 </html>

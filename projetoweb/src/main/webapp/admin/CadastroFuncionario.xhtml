@@ -88,8 +88,17 @@ and open the template in the editor.
                         <h:commandButton action="#{funcionarioControle.excluir(f)}" value="Excluir"/>
                     </p:column>
                 </p:dataTable>                
-            </h:form>            
-        </div>              
+            </h:form>           
+        </div>
+        <script>
+            function validaSenha(){
+					var senha1 = document.getElementById('form:senha').value;
+					var senha2 = document.getElementById('form:repetiSenha').value;
+					if(senha1 != senha2){
+						alert("Erro na confirmação da senha. Valor inválido.");
+					}
+				}
+        </script>
     </h:body>
 </html>
 

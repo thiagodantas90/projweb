@@ -15,12 +15,18 @@ and open the template in the editor.
         <link type="text/css" rel="stylesheet" media="screen" href="Estilos/generico.css" />
     </h:head>
     <h:body>
-        <h1>Autenticação</h1>        
-        <h:form>                
+        
+        <div id="telaLogin">
+               
+            <p:panel id="loginTela">
+        <h:form>
+            <h1 style="align-items: center">Autenticação</h1><br/>
             Usuário: <p:inputText value="#{login.login.usuario}"/><br/>
-            Senha: <p:password value="#{login.login.senha}"/> <br/>        
-            <p:commandButton value="Acessar" action="#{login.autenticar()}"/>
-        </h:form>                          
+            Senha:  <p:password value="#{login.login.senha}"/> <br/>        
+            <h:commandButton value="Acessar" action="#{login.autenticar()}"/>
+        </h:form>
+        </p:panel>:
+        </div>
     </h:body>
 </html>
 
