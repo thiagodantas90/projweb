@@ -16,18 +16,17 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <div id="topo">
-          <h:form>            
-            <h:commandButton value="Sair" action="#{login.logout()}"/>
+           <h:form>            
+            <p:commandButton value="Sair" action="#{login.logout()}"/>
         <p:panelGrid>
             <p:panel>
-                <p:commandButton  value="PDV" action="abrirPDV"/>
-                <p:commandButton value="Clientes" action="CadastroCliente"/>
-                <p:commandButton value="Funcionarios" action="/admin/CadastroFuncionario" rendered="#{sessionScope['admin-logado'] ne null}"/>
-                <p:commandButton value="Produtos" action="/admin/CadastroProduto" rendered="#{sessionScope['admin-logado'] ne null}"/>
-                <p:commandButton value="Vendas" action="Vendas"/>
+                <p:commandButton  value="PDV" action="/admin/abrirPDV"/>
+                <p:commandButton value="Clientes" action="/admin/CadastroCliente"/>
+                <p:commandButton value="Funcionarios" action="/admin/CadastroProduto" rendered="#{sessionScope['admin-logado'] ne null}"/>                
+                <p:commandButton value="Vendas" action="/admin/Vendas"/>
             </p:panel>
         </p:panelGrid>
-        </h:form>    
+        </h:form>   
         </div>
         <div id="funcionario"> 
             <h:form>
@@ -49,7 +48,7 @@ and open the template in the editor.
                     
                     Administrador: <p:selectBooleanCheckbox value="#{funcionarioControle.funcAtual.admin}"/>    <br/>                                                                            
                                         
-                    <h:commandButton action="#{funcionarioControle.cadastrarFuncionario()}" value="CADASTRAR" onclick="validatePassword()"/>                   
+                    <h:commandButton action="#{funcionarioControle.cadastrarFuncionario()}" value="CADASTRAR" onclick="validatePassword()"/><br/>     <br/>                
                     <h:commandButton action="#{funcionarioControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>            
                 </p:panelGrid>
             </h:form>
@@ -81,7 +80,7 @@ and open the template in the editor.
                     </p:column>
                     <p:column>
                         <f:facet name="header">Editar</f:facet>
-                        <p:commandButton action="#{funcionarioControle.editarFuncionario(f)}" value="Editar"/>
+                        <h:commandButton action="#{funcionarioControle.editarFuncionario(f)}" value="Editar"/>
                     </p:column>
                     <p:column>
                         <f:facet name="header">Excluir</f:facet>

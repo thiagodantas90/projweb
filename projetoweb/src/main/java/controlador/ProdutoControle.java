@@ -46,8 +46,9 @@ public class ProdutoControle{
         q.delete(p);
         removeBean("produtoControle");
     }
-    public void cancelarCadastro(){
-       limparCampo();       
+    public String cancelarCadastro(){
+       limparCampo();     
+       return "TelaOpcoes";
     }
     public void editarProduto(Produto p){
         produtoAtual = p;        

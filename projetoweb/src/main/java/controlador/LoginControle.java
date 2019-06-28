@@ -46,12 +46,12 @@ public class LoginControle {
                         ExternalContext ec = context.getExternalContext();
                         HttpSession s = (HttpSession) ec.getSession(true);
                         s.setAttribute("admin-logado", i);
-                    return "/TelaOpcoes?faces-redirect=true";
+                    return "/admin/TelaOpcoesAdmin?faces-redirect=true";
                     }else if(i.getAdmin() == false){
                         ExternalContext ec = context.getExternalContext();
                         HttpSession s = (HttpSession) ec.getSession(true);
                         s.setAttribute("usuario-logado", i);
-                    return "/TelaOpcoes?faces-redirect=true";
+                    return "/usuario/TelaOpcoes?faces-redirect=true";
                     }                
                 }else{
                     

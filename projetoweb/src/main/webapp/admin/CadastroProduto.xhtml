@@ -17,20 +17,19 @@ and open the template in the editor.
     <h:body>
          <div id="topo">
            <h:form>            
-            <h:commandButton value="Sair" action="#{login.logout()}"/>
+            <p:commandButton value="Sair" action="#{login.logout()}"/>
         <p:panelGrid>
             <p:panel>
                 <p:commandButton  value="PDV" action="abrirPDV"/>
                 <p:commandButton value="Clientes" action="CadastroCliente"/>
-                <p:commandButton value="Funcionarios" action="/admin/CadastroFuncionario" rendered="#{sessionScope['admin-logado'] ne null}"/>
-                <p:commandButton value="Produtos" action="/admin/CadastroProduto" rendered="#{sessionScope['admin-logado'] ne null}"/>
+                <p:commandButton value="Funcionarios" action="/admin/CadastroFuncionario" rendered="#{sessionScope['admin-logado'] ne null}"/>                
                 <p:commandButton value="Vendas" action="Vendas"/>
             </p:panel>
         </p:panelGrid>
         </h:form>    
         </div>
         <div id="produto">           
-           
+            <h3 style="padding:10px">CADASTRAR NOVO PRODUTO</h3>
            <h:form>
                
                Descrição: <p:inputText  id="descricao" value="#{produtoControle.produtoAtual.descricao}" required="true" requiredMessage="Campo não pode ser vazio" validatorMessage="Não pode ser maior do que 50 caracteres">
@@ -54,7 +53,7 @@ and open the template in the editor.
                         <f:validateRegex pattern="[0-9]+"/>
                     </p:inputText><p:message for="cod"/> <br/>                                   
                    
-                    <h:commandButton action="#{produtoControle.cadastrarProduto()}" value="CADASTRAR"/>                                                                     
+                    <h:commandButton action="#{produtoControle.cadastrarProduto()}" value="CADASTRAR"/><br/>                                                                     
                     <h:commandButton action="#{produtoControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>               
            </h:form>
                          
@@ -69,7 +68,7 @@ and open the template in the editor.
                             <f:facet name="header">ID</f:facet>
                             #{p.id_produto}
                         </p:column>
-                        <p:column>
+                            <p:column>
                             <f:facet name="header">Descriçao</f:facet>
                             #{p.descricao}
                         </p:column>

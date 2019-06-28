@@ -42,6 +42,7 @@ public class ClienteControle {
     public String cancelarCadastro(){
         limparCampos();
         return "TelaOpcoes";
+        
     }
     public void editarCliente(Cliente c){
         clienteAtual = c;        

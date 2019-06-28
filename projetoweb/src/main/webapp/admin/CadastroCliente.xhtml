@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Tela de Cadastro Cliente</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link type="text/css" rel="stylesheet" media="screen" href="Estilos/generico.css" />
+    </h:head>
+    <h:body>
+        <div id="topo">
+           <h:form>            
+            <p:commandButton value="Sair" action="#{login.logout()}"/>
+        <p:panelGrid>
+            <p:panel>
+                <p:commandButton  value="PDV" action="/admin/abrirPDV"/>                
+                <p:commandButton value="Funcionarios" action="/admin/CadastroFuncionario" rendered="#{sessionScope['admin-logado'] ne null}"/>
+                <p:commandButton value="Produtos" action="/admin/CadastroProduto" rendered="#{sessionScope['admin-logado'] ne null}"/>
+                <p:commandButton value="Vendas" action="/admin/Vendas"/>
+            </p:panel>
+        </p:panelGrid>
+        </h:form>    
+        </div>
+      
+        <div id="cliente">
+            <h:panelGrid>
+             <h:form>
+                 <br/> Nome: <p:inputText id="nome" value="#{clienteControle.clienteAtual.nome_cliente}" required="true" requiredMessage="Campo não pode ser vazio">
+                        <f:validateLength maximum="100"/>
+                    </p:inputText> <p:message for="nome"/> <br/>                                   
+                    
+                    CPF: <p:inputMask mask="999.999.999-99" id="cpf" value="#{clienteControle.clienteAtual.cpf}" required="true" requiredMessage="Campo não pode ser vazio" validatorMessage="Digite os 11 números">                        
+                    </p:inputMask> <p:message for="cpf"/> <br/>
+                   
+                    Telefone: <p:inputMask mask="(99)99999-9999" id="tel" value="#{clienteControle.clienteAtual.telefone}" required="true" requiredMessage="Campo não pode ser vazio">
+                    </p:inputMask><p:message for="tel"/><br/> 
+                    
+                    <h:commandButton action="#{clienteControle.cadastrarCliente()}" value="CADASTRAR" style="size: 20px" /><br/>                   
+                   <h:commandButton action="#{clienteControle.cancelarCadastro()}" value="CANCELAR" immediate="true" /><br/>
+            </h:form>
+            </h:panelGrid>
+        </div>                                  
+        <div id="listaCliente">
+            
+            <h:form>
+                <p:dataTable value="#{clienteControle.listarClientes()}" var="c">
+                    <p:column headerText="ID">                        
+                        #{c.id_cliente}
+                    </p:column>
+                    <p:column headerText="Nome">                    
+                        #{c.nome_cliente}
+                    </p:column>
+                    <p:column headerText="CPF">                        
+                        #{c.cpf}
+                    </p:column>
+                    <p:column headerText="Telefone">                        
+                        #{c.telefone}
+                    </p:column>
+                    <p:column headerText="Editar">                        
+                        <h:commandButton action="#{clienteControle.editarCliente(c)}" value="Editar"/>                        
+                    </p:column>
+                    <p:column headerText="Excluir">                     
+                        <h:commandButton action="#{clienteControle.excluir(c)}" value="Excluir"/>
+                    </p:column>
+                </p:dataTable>                
+            </h:form>        
+        </div>
+    </h:body>
+</html>
+

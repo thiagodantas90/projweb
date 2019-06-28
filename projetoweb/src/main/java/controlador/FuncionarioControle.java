@@ -37,8 +37,9 @@ public class FuncionarioControle {
         IgenericFuncionario fdao = new IgenericFuncionarioImpl();
         fdao.delete(f);
     }
-    public void cancelarCadastro(){
+    public String cancelarCadastro(){
         limparCampos();
+        return "TelaOpcoes";
     }
     public void editarFuncionario(Funcionario f){
         funcAtual = f;
