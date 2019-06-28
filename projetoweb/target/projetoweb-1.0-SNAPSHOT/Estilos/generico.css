@@ -14,7 +14,7 @@ and open the template in the editor.
     background-color: gray;
 }
 body{
-    background-image: url("/imagens/back.png");
+    background-image: url("../imagens/back.png");
     background-repeat: no-repeat;
 }
 #top{
@@ -33,14 +33,7 @@ body{
     float: left;
     padding: 10px;
 }
-body{
-/*    background-image: url(../imagens/back.png);
-   
-    background-repeat: no-repeat;*/
-    align-items: center;
-    
-    
-}
+
 #abrirVenda,#loginTela,#avisocliente{
     background-color: #e1e1e1;
 }

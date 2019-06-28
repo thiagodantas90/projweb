@@ -27,10 +27,16 @@ public class FuncionarioControle {
     public FuncionarioControle() {
         listarFuncionarios();
     }       
-    public void cadastrarFuncionario(){        
-        IgenericFuncionario fdao = new IgenericFuncionarioImpl();
-        fdao.save(funcAtual);
-        limparCampos();        
+    public String cadastrarFuncionario(){
+        if(funcAtual.getSenha().equals(repetiSenha)){
+            IgenericFuncionario fdao = new IgenericFuncionarioImpl();
+            fdao.save(funcAtual);
+            limparCampos();
+            return "";
+        }else{
+            return "erroSenha";
+        }
+        
     }
 
     public void excluir(Funcionario f){        
