@@ -16,14 +16,23 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <div id="topo">
-            <h:form >
-                <p:commandButton action="TelaOpcoes" value="Inicio"/>                
-            </h:form>
+           <h:form>            
+            <h:commandButton value="Sair" action="#{login.logout()}"/>
+                <p:panelGrid>
+                    <p:panel>
+                        <p:commandButton  value="PDV" action="abrirPDV"/>
+                        <p:commandButton value="Clientes" action="CadastroCliente"/>
+                        <p:commandButton value="Funcionarios" action="/admin/CadastroFuncionario" rendered="#{sessionScope['admin-logado'] ne null}"/>
+                        <p:commandButton value="Produtos" action="/admin/CadastroProduto" rendered="#{sessionScope['admin-logado'] ne null}"/>
+                        <p:commandButton value="Vendas" action="Vendas"/>
+                    </p:panel>
+                </p:panelGrid>
+            </h:form>    
         </div>
       
         <div id="cliente">          
              <h:form>
-                    Nome: <p:inputText id="nome" value="#{clienteControle.clienteAtual.nome_cliente}" required="true" requiredMessage="Campo não pode ser vazio">
+                 <br/> Nome: <p:inputText id="nome" value="#{clienteControle.clienteAtual.nome_cliente}" required="true" requiredMessage="Campo não pode ser vazio">
                         <f:validateLength maximum="100"/>
                     </p:inputText> <p:message for="nome"/> <br/>                                   
                     
@@ -33,8 +42,8 @@ and open the template in the editor.
                     Telefone: <p:inputMask mask="(99)99999-9999" id="tel" value="#{clienteControle.clienteAtual.telefone}" required="true" requiredMessage="Campo não pode ser vazio">
                     </p:inputMask><p:message for="tel"/><br/> 
                     
-                   <h:commandButton action="#{clienteControle.cadastrarCliente()}" value="CADASTRAR" style="size: 20px"/>                   
-                   <h:commandButton action="#{clienteControle.cancelarCadastro()}" value="CANCELAR" immediate="true" />
+                   <h:commandButton action="#{clienteControle.cadastrarCliente()}" value="CADASTRAR" style="size: 20px" />                   
+                   <h:commandButton action="#{clienteControle.cancelarCadastro()}" value="CANCELAR" immediate="true" /><br/>
                 </h:form>
           
         </div>                                  

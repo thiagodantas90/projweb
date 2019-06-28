@@ -19,7 +19,7 @@ and open the template in the editor.
             <h:commandButton value="Sair" action="#{login.logout()}"/>
         <p:panelGrid>
             <p:panel>
-                <p:commandButton  value="PDV" action="PDV"/>
+                <p:commandButton  value="PDV" action="abrirPDV"/>
                 <p:commandButton value="Clientes" action="CadastroCliente"/>
                 <p:commandButton value="Funcionarios" action="/admin/CadastroFuncionario" rendered="#{sessionScope['admin-logado'] ne null}"/>
                 <p:commandButton value="Produtos" action="/admin/CadastroProduto" rendered="#{sessionScope['admin-logado'] ne null}"/>

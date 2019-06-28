@@ -7,18 +7,25 @@ package controlador;
 
 import DAOimplem.IgenericClienteImpl;
 import DAOimplem.IgenericProdutoImpl;
+import DAOimplem.IgenericVendasImpl;
 import DAOinterface.IgenericCliente;
 import DAOinterface.IgenericProduto;
+import DAOinterface.IgenericVendas;
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import modelos.Cliente;
 import modelos.Funcionario;
 import modelos.ItensCestaPDV;
 import modelos.Produto;
+import modelos.Vendas;
 import modelos.adicionarPDV;
 
 /**
@@ -32,16 +39,22 @@ public class PDVControle{
     //private int quantItem;
      //private String codBarras;
     private double totalItem = 0, somaTotal = 0;
-       
+    private Produto produtoAtual = new Produto();
+    private Cliente clienteAtual = new Cliente();
+    private Funcionario usuarioLogado = new Funcionario();
+    private Vendas vendaAtual = new Vendas();       
+    
     private ArrayList<ItensCestaPDV> listaPDV = new ArrayList<>();//tabela com os itens adicionados
     private List<Produto> todosProd, todo;//todos os proutos do banco    
     private List<Cliente> cTodos;
     private ItensCestaPDV item = new ItensCestaPDV();//objeto da tabela de itens, será udado para as vendas     
-    private Produto produtoAtual = new Produto();
+  
     private adicionarPDV adPr = new adicionarPDV();
+    private String CPF;
+    private int ID;
 
     public PDVControle() {
-        inicializar();        
+        inicializar();              
     }        
     
     public void adicionarProduto(){ 
@@ -72,7 +85,7 @@ public class PDVControle{
         return "TelaOpcoes";
     }
     public void finalizarCompra(){
-    
+        
     }    
     public Produto procurarProduto(String cod){
         for(Produto p: todosProd){
@@ -87,11 +100,37 @@ public class PDVControle{
     private void calcularPreco(){
         totalItem = adPr.getQuantProduto()*produtoAtual.getPreco();
     }
-    public void inicializar(){
+    
+    public String adicionarCliente(){       
+        //cTodos.get(0).getCpf();
+        for(Cliente c:cTodos){
+            if(c.getCpf().equals(CPF)){
+                clienteAtual = c;
+                return "PDV";
+            }else{
+                System.out.println("sair");
+                return "AvisoCliente";
+            }
+        }
+        return null ;
+    }
+    public String clientePadrao(){
+        clienteAtual = new Cliente("balcao", "00000000000", "00000000000");
+        System.out.println(clienteAtual.getCpf());
+        System.out.println(clienteAtual.getNome_cliente());
+        return "PDV";
+    }
+    private void inicializar(){
         IgenericProduto p = new IgenericProdutoImpl();
         todosProd = p.findAll();
         IgenericCliente cdao = new IgenericClienteImpl();
-        cTodos = cdao.findAll();               
+        cTodos = cdao.findAll();       
+            
+    }
+    private void pegarUsuario(){
+        ServletRequest request = null;
+        HttpSession session = ((HttpServletRequest) request).getSession(false);
+        usuarioLogado = (Funcionario) session.getAttribute("admin-logado");  
     }
     public List<Cliente> listarClientes(){
         return cTodos;
@@ -101,7 +140,11 @@ public class PDVControle{
         return listaPDV;
     }
     public void fecharVenda(){
-        
+        pegarUsuario();
+        Date data;
+        vendaAtual = new Vendas(clienteAtual, usuarioLogado, somaTotal, data = new java.sql.Date(new java.util.Date().getTime()));
+        IgenericVendas vdao = new IgenericVendasImpl();
+        vdao.save(vendaAtual);
     }
     public adicionarPDV getAdPr() {
         return adPr;
@@ -193,6 +236,45 @@ public class PDVControle{
         this.cTodos = cTodos;
     }
 
+    public String getCPF() {
+        return CPF;
+    }
+
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public Cliente getClienteAtual() {
+        return clienteAtual;
+    }
+
+    public void setClienteAtual(Cliente clienteAtual) {
+        this.clienteAtual = clienteAtual;
+    }
+
+    public Funcionario getUsuarioLogado() {
+        return usuarioLogado;
+    }
+
+    public void setUsuarioLogado(Funcionario usuarioLogado) {
+        this.usuarioLogado = usuarioLogado;
+    }
+
+    public Vendas getVendaAtual() {
+        return vendaAtual;
+    }
+
+    public void setVendaAtual(Vendas vendaAtual) {
+        this.vendaAtual = vendaAtual;
+    }
 
     
 }

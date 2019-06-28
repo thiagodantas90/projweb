@@ -47,6 +47,16 @@ public class Vendas implements Serializable{
     @Column(name = "data_venda")
     private Date data_venda;
 
+    public Vendas(Cliente cliente, Funcionario funcionario, double valor_venda, Date data_venda) {
+        this.cliente = cliente;
+        this.funcionario = funcionario;
+        this.valor_venda = valor_venda;
+        this.data_venda = data_venda;
+    }             
+
+    public Vendas() {
+    }
+    
     public int getId_venda() {
         return id_venda;
     }

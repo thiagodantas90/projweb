@@ -16,13 +16,25 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <div id="topo">
-            <h:form>
-                <h:commandButton action="TelaOpcoes" value="Inicio"/>                
-            </h:form>
-        </div>
-       
+            <h:form>            
+            <h:commandButton value="Sair" action="#{login.logout()}"/>
+        <p:panelGrid>
+            <p:panel>
+                <p:commandButton  value="PDV" action="abrirPDV"/>
+                <p:commandButton value="Clientes" action="CadastroCliente"/>
+                <p:commandButton value="Funcionarios" action="/admin/CadastroFuncionario" rendered="#{sessionScope['admin-logado'] ne null}"/>
+                <p:commandButton value="Produtos" action="/admin/CadastroProduto" rendered="#{sessionScope['admin-logado'] ne null}"/>
+                <p:commandButton value="Vendas" action="Vendas"/>
+            </p:panel>
+        </p:panelGrid>
+        </h:form>    
+        </div>                
+        
         <div id="adicionarCesta"> 
-          
+            <form>
+                Cliente: <p:outputLabel value="#{pdv.clienteAtual.nome_cliente}"/><br/>
+                CPF: <p:outputLabel value="#{pdv.clienteAtual.cpf}"/>
+            </form>
             <h:form>            
                
                 Código: <p:inputText id="cod" value="#{pdv.adPr.codBarras}" required="true" requiredMessage="Insiara o código" validatorMessage="Apena números">
@@ -35,7 +47,7 @@ and open the template in the editor.
                          
                     <h:commandButton value="Adicionar" action="#{pdv.adicionarProduto()}"/><br/>
                     Total(R$): <p:outputLabel value="#{pdv.somaTotal}" style="background-color: white"/><br/>
-                    <h:commandButton value="Finalizar" action="#{pdv.finalizarCompra()}"/>
+                    <h:commandButton value="Finalizar" action="#{pdv.finalizarCompra()}" immediate="true"/>
                     <h:commandButton value="Cancelar" action="#{pdv.cancelar()}"/>
               
             </h:form>     

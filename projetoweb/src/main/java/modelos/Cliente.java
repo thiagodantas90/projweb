@@ -19,6 +19,7 @@ import javax.persistence.*;
 public class Cliente implements Serializable{
     
     @OneToMany(mappedBy = "Cliente")
+    //@OneToOne(mappedBy = "Cliente")
     
     private static final long serialVersionUID = 5270206178668837693L;
        

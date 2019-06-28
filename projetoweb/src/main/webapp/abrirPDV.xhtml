@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Abrir venda</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link type="text/css" rel="stylesheet" media="screen" href="Estilos/generico.css" />
+    </h:head>
+    <h:body>
+        <div id="topo">        
+        <h:form>            
+            <h:commandButton value="Sair" action="#{login.logout()}"/>
+        <p:panelGrid>
+            <p:panel>
+                <p:commandButton  value="PDV" action="abrirPDV"/>
+                <p:commandButton value="Clientes" action="CadastroCliente"/>
+                <p:commandButton value="Funcionarios" action="/admin/CadastroFuncionario" rendered="#{sessionScope['admin-logado'] ne null}"/>
+                <p:commandButton value="Produtos" action="/admin/CadastroProduto" rendered="#{sessionScope['admin-logado'] ne null}"/>
+                <p:commandButton value="Vendas" action="Vendas"/>
+            </p:panel>
+        </p:panelGrid>
+        </h:form>
+        </div>
+        <div id="AddCliente">
+            <h:form>                
+                <h3>Insira o CPF para iniciar uma venda</h3>
+                CPF: <p:inputMask mask="999.999.999-99" value="#{pdv.CPF}"/>
+                <h:commandButton action="#{pdv.adicionarCliente()}" value="Abrir"/>
+            </h:form>
+        </div>        
+    </h:body>
+</html>

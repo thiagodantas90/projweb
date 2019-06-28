@@ -16,9 +16,18 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <div id="topo">
-            <h:form>
-                <p:commandButton action="/TelaOpcoes.index" value="Inicio"/>                
-            </h:form>
+          <h:form>            
+            <h:commandButton value="Sair" action="#{login.logout()}"/>
+        <p:panelGrid>
+            <p:panel>
+                <p:commandButton  value="PDV" action="abrirPDV"/>
+                <p:commandButton value="Clientes" action="CadastroCliente"/>
+                <p:commandButton value="Funcionarios" action="/admin/CadastroFuncionario" rendered="#{sessionScope['admin-logado'] ne null}"/>
+                <p:commandButton value="Produtos" action="/admin/CadastroProduto" rendered="#{sessionScope['admin-logado'] ne null}"/>
+                <p:commandButton value="Vendas" action="Vendas"/>
+            </p:panel>
+        </p:panelGrid>
+        </h:form>    
         </div>
         <div id="funcionario"> 
             <h:form>
