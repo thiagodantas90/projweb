@@ -14,7 +14,11 @@ and open the template in the editor.
     background-color: gray;
 }
 body{
-    
+    background-image: url("/imagens/back.png");
+    background-repeat: no-repeat;
+}
+#top{
+    background-image: url();
 }
 #produto,#cliente,#funcionario,#adicionarCesta{
     width: 300px;

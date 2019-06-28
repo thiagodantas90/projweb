@@ -1,6 +1,4 @@
-DAO\VendasDAO.class
 DAOimplem\IgenericProdutoImpl.class
-DAO\ProdutoDAO.class
 DAOinterface\IgenericFuncionario.class
 controlador\FuncionarioControle.class
 DAOimplem\GenericDaoImpl$2.class
@@ -22,11 +20,7 @@ modelos\Funcionario.class
 controlador\ClienteControle.class
 DAOimplem\IgenericClienteImpl.class
 banco\HibernateUtil.class
-testes\TesteP_1.class
 controlador\LoginControle.class
 controlador\PDVControle.class
 modelos\Vendas.class
 DAOimplem\IgenericFuncionarioImpl.class
-DAO\FuncionarioDAO.class
-DAO\ClienteDAO.class
-testes\TesteF.class

@@ -5,7 +5,6 @@
  */
 package controlador;
 
-import DAO.ProdutoDAO;
 import DAOimplem.IgenericProdutoImpl;
 import DAOinterface.IgenericProduto;
 

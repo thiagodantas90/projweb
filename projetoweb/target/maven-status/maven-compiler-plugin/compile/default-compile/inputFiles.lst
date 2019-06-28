@@ -1,7 +1,5 @@
-D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\DAO\FuncionarioDAO.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\DAOimplem\GenericDaoImpl.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\testes\Iniciar.java
-D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\DAO\VendasDAO.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\controlador\LoginControle.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\DAOimplem\IgenericFuncionarioImpl.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\controlador\FuncionarioControle.java
@@ -13,9 +11,7 @@ D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\ja
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\filtros\LoginFiltroAdmin.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\DAOinterface\IgenericVendas.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\controlador\VendasControle.java
-D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\DAO\ClienteDAO.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\filtros\LoginFiltroUsr.java
-D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\testes\TesteP_1.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\DAOimplem\IgenericVendasImpl.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\DAOimplem\IgenericClienteImpl.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\modelos\Vendas.java
@@ -26,9 +22,7 @@ D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\ja
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\controlador\ClienteControle.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\DAOinterface\IgenericFuncionario.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\DAOinterface\IgenericCliente.java
-D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\testes\TesteF.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\modelos\adicionarPDV.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\banco\ConectaHibernateMySQL.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\modelos\Cliente.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\DAOinterface\IgenericDAO.java
-D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\DAO\ProdutoDAO.java

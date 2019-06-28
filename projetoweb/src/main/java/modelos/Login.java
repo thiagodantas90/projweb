@@ -5,6 +5,10 @@
  */
 package modelos;
 
+import DAOimplem.IgenericFuncionarioImpl;
+import DAOinterface.IgenericFuncionario;
+import java.util.List;
+
 /**
  *
  * @author Thiago Dantas
@@ -12,6 +16,7 @@ package modelos;
 public class Login {
     private String usuario;
     private String senha;
+    private List<Funcionario> f;
 
     public Login(String usuario, String senha) {
         this.usuario = usuario;
@@ -19,8 +24,14 @@ public class Login {
     }
 
     public Login() {
-    }
-    
+        IgenericFuncionario fdao = new IgenericFuncionarioImpl();
+        f = fdao.findAll();
+        if(f.size()==0){
+            Funcionario f = new Funcionario("Admin", "123456", "admin", true);       
+            fdao.save(f);
+        }
+        
+    }    
     
     public String getUsuario() {
         return usuario;
