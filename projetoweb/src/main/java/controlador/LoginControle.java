@@ -67,10 +67,11 @@ public class LoginControle {
 
     }  
     public String logout(){
-         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-         HttpSession session = request.getSession();
-         session.invalidate();
-         return "index";
+        FacesContext context = FacesContext.getCurrentInstance();
+        ExternalContext ec = context.getExternalContext();
+        HttpSession s = (HttpSession) ec.getSession(true);
+        s.invalidate();
+        return "/index?faces-redirect=true";       
     }
     public String redirecionar(){
         return "CadastroProduto";

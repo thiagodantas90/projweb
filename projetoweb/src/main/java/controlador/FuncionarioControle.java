@@ -32,9 +32,7 @@ public class FuncionarioControle {
         fdao.save(funcAtual);
         limparCampos();        
     }
-    public void atualizar(){
-        
-    }
+
     public void excluir(Funcionario f){        
         IgenericFuncionario fdao = new IgenericFuncionarioImpl();
         fdao.delete(f);

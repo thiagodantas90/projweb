@@ -27,6 +27,7 @@ public class ProdutoControle{
  
     private Produto produtoAtual = new Produto();
     private List<Produto> listaProdutos;
+    
    
     public ProdutoControle() {
         listarEstoque();
@@ -46,15 +47,14 @@ public class ProdutoControle{
         removeBean("produtoControle");
     }
     public void cancelarCadastro(){
-       limparCampo();
-       removeBean("produtoControle");
+       limparCampo();       
     }
     public void editarProduto(Produto p){
         produtoAtual = p;        
     }    
     public List<Produto> listarEstoque(){          
         IgenericProduto p = new IgenericProdutoImpl(); 
-        listaProdutos= p.findAll();
+        listaProdutos= p.findAll();       
         return listaProdutos;
     }
 

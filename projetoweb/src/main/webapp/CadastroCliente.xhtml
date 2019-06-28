@@ -21,50 +21,47 @@ and open the template in the editor.
             </h:form>
         </div>
       
-        <div id="cliente">
-            <h:panelGrid>
-                <h:form>
-                    Nome: <h:inputText value="#{clienteControle.clienteAtual.nome_cliente}"></h:inputText> <br/>               
-                    CPF: <h:inputText value="#{clienteControle.clienteAtual.cpf}"></h:inputText> <br/>
-                    Telefone: <h:inputText value="#{clienteControle.clienteAtual.telefone}"></h:inputText> <br/> 
+        <div id="cliente">          
+             <h:form>
+                    Nome: <p:inputText id="nome" value="#{clienteControle.clienteAtual.nome_cliente}" required="true" requiredMessage="Campo não pode ser vazio">
+                        <f:validateLength maximum="100"/>
+                    </p:inputText> <p:message for="nome"/> <br/>                                   
                     
-                   <h:commandButton action="#{clienteControle.cadastrarCliente()}" value="CADASTRAR" />
-                   <h:commandButton action="#{funcionarioControle.Atualizr()}" value="ATUALIZAR"/>
-                   <h:commandButton action="#{clienteControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>
+                    CPF: <p:inputMask mask="999.999.999-99" id="cpf" value="#{clienteControle.clienteAtual.cpf}" required="true" requiredMessage="Campo não pode ser vazio" validatorMessage="Digite os 11 números">                        
+                    </p:inputMask> <p:message for="cpf"/> <br/>
+                   
+                    Telefone: <p:inputMask mask="(99)99999-9999" id="tel" value="#{clienteControle.clienteAtual.telefone}" required="true" requiredMessage="Campo não pode ser vazio">
+                    </p:inputMask><p:message for="tel"/><br/> 
+                    
+                   <h:commandButton action="#{clienteControle.cadastrarCliente()}" value="CADASTRAR" style="size: 20px"/>                   
+                   <h:commandButton action="#{clienteControle.cancelarCadastro()}" value="CANCELAR" immediate="true" />
                 </h:form>
-            </h:panelGrid>
+          
         </div>                                  
         <div id="listaCliente">
             
             <h:form>
-                <h:dataTable value="#{clienteControle.listarClientes()}" var="c">
-                     <h:column>
-                        <f:facet name="header">ID</f:facet>
+                <p:dataTable value="#{clienteControle.listarClientes()}" var="c">
+                    <p:column headerText="ID">                        
                         #{c.id_cliente}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Nome</f:facet>
+                    </p:column>
+                    <p:column headerText="Nome">                    
                         #{c.nome_cliente}
-                    </h:column>
-                     <h:column>
-                        <f:facet name="header">CPF</f:facet>
+                    </p:column>
+                    <p:column headerText="CPF">                        
                         #{c.cpf}
-                    </h:column>
-                     <h:column>
-                        <f:facet name="header">Telefone</f:facet>
+                    </p:column>
+                    <p:column headerText="Telefone">                        
                         #{c.telefone}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Editar</f:facet>
-                        <h:commandButton action="#{clienteControle.editarCliente(c)}" value="Editar"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Excluir</f:facet>
-                        <h:commandButton action="#{clienteControle.excluir(c)}" value="Excluir"/>
-                    </h:column>
-                </h:dataTable>
-                
-            </h:form>                                        
+                    </p:column>
+                    <p:column headerText="Editar">                        
+                        <h:commandButton action="#{clienteControle.editarCliente(c)}" value="Editar"/>                        
+                    </p:column>
+                    <p:column headerText="Excluir">                     
+                        <h:commandButton action="#{clienteControle.excluir(c)}" value="Excluir" immediate="true"/>
+                    </p:column>
+                </p:dataTable>                
+            </h:form>        
         </div>
     </h:body>
 </html>

@@ -22,57 +22,65 @@ and open the template in the editor.
         </div>
         <div id="funcionario"> 
             <h:form>
-                <h:panelGrid>
+                <p:panelGrid>
                 
-                    Nome: <h:inputText value="#{funcionarioControle.funcAtual.nome_funcionario}"></h:inputText> <br/>               
-                    Usuario: <h:inputText value="#{funcionarioControle.funcAtual.usario}"></h:inputText> <br/>
-                    Senha: <h:inputSecret id="senha" value="#{funcionarioControle.funcAtual.senha}"></h:inputSecret> <br/>                
-                    Repetir Senha: <h:inputSecret id="repetiSenha" value="#{funcionarioControle.repetiSenha}"></h:inputSecret> <br/>
-                    Administrador: <h:selectBooleanCheckbox value="#{funcionarioControle.funcAtual.admin}"/>                                                     
-                    <h:commandButton action="#{funcionarioControle.cadastrarFuncionario()}" value="CADASTRAR" />
-                    <h:commandButton action="#{funcionarioControle.Atualizr()}" value="ATUALIZAR"/>
+                    Nome: <p:inputText id="nomeFunc" value="#{funcionarioControle.funcAtual.nome_funcionario}" required="true" requiredMessage="Campo não pode ser vazio">                        
+                    </p:inputText>
+                    <p:message for="nomeFunc"/> <br/>               
+                    
+                    Usuario: <p:inputText id="usuario" value="#{funcionarioControle.funcAtual.usario}" required="true" requiredMessage="Campo não pode ser vazio">                    
+                        <f:validateLength maximum="15" minimum="8"/>
+                    </p:inputText><p:message for="usuario"/><br/>
+                    
+                    Senha: <p:password id="senha" value="#{funcionarioControle.funcAtual.senha}" required="true" requiredMessage="Campo não pode ser vazio">
+                    </p:password> <p:message for="senha"/><br/>                
+                    
+                    Repetir Senha: <p:password id="repetiSenha" value="#{funcionarioControle.repetiSenha}" required="true" requiredMessage="Campo não pode ser vazio">
+                    </p:password><p:message for="repetiSenha"/> <br/>
+                    
+                    Administrador: <p:selectBooleanCheckbox value="#{funcionarioControle.funcAtual.admin}"/>    <br/>                                                                            
+                                        
+                    <h:commandButton action="#{funcionarioControle.cadastrarFuncionario()}" value="CADASTRAR" onclick="validatePassword()"/>                   
                     <h:commandButton action="#{funcionarioControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>            
-                </h:panelGrid>
+                </p:panelGrid>
             </h:form>
            
         </div>
         <div id="listaFuncionario">
            
             <h:form>
-                <h:dataTable value="#{funcionarioControle.listarFuncionarios()}" var="f" border="1">
-                     <h:column>
+                <p:dataTable value="#{funcionarioControle.listarFuncionarios()}" var="f">
+                     <p:column>
                         <f:facet name="header">ID</f:facet>
                         #{f.id_funcionario}
-                    </h:column>
-                    <h:column>
+                    </p:column>
+                    <p:column>
                         <f:facet name="header">Nome</f:facet>
                         #{f.nome_funcionario}
-                    </h:column>
-                     <h:column>
+                    </p:column>
+                     <p:column>
                         <f:facet name="header">Usuario</f:facet>
                         #{f.usario}
-                    </h:column>
-                     <h:column>
+                    </p:column>
+                     <p:column>
                         <f:facet name="header">Admin</f:facet>
                         #{f.admin}
-                    </h:column>
-                     <h:column>
+                    </p:column>
+                     <p:column>
                         <f:facet name="header">Senha</f:facet>
                         #{f.senha}
-                    </h:column>
-                    <h:column>
+                    </p:column>
+                    <p:column>
                         <f:facet name="header">Editar</f:facet>
-                        <h:commandButton action="#{funcionarioControle.editarFuncionario(f)}" value="Editar"/>
-                    </h:column>
-                    <h:column>
+                        <p:commandButton action="#{funcionarioControle.editarFuncionario(f)}" value="Editar"/>
+                    </p:column>
+                    <p:column>
                         <f:facet name="header">Excluir</f:facet>
                         <h:commandButton action="#{funcionarioControle.excluir(f)}" value="Excluir"/>
-                    </h:column>
-                </h:dataTable>                
+                    </p:column>
+                </p:dataTable>                
             </h:form>            
-        </div>
-      
-        
+        </div>              
     </h:body>
 </html>
 

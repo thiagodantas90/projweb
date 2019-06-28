@@ -58,6 +58,7 @@ public class PDVControle{
             listaPDV.add(item);
             somaTotal = somaTotal + totalItem;
             totalItem = 0;
+            adPr = new adicionarPDV();
             //return "adicionado";
         }else{
                      
@@ -67,7 +68,9 @@ public class PDVControle{
         somaTotal = somaTotal - item.getTotalItem();
         listaPDV.remove(item);        
     }
-    
+    public String cancelar(){        
+        return "TelaOpcoes";
+    }
     public void finalizarCompra(){
     
     }    

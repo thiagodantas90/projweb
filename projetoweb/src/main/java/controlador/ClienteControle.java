@@ -37,9 +37,11 @@ public class ClienteControle {
     public void excluir(Cliente c){
         IgenericCliente cdao = new IgenericClienteImpl(); 
         cdao.delete(clienteAtual);
+        
     }
-    public void cancelarCadastro(){
+    public String cancelarCadastro(){
         limparCampos();
+        return "TelaOpcoes";
     }
     public void editarCliente(Cliente c){
         clienteAtual = c;        

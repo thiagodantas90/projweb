@@ -23,17 +23,30 @@ and open the template in the editor.
         <div id="produto">           
            
            <h:form>
-               <h:panelGrid>
-                   Descrição: <h:inputText  value="#{produtoControle.produtoAtual.descricao}"></h:inputText> <br/>               
-                    Preço: <h:inputText value="#{produtoControle.produtoAtual.preco}"></h:inputText> <br/>
-                    Unidade: <h:inputText value="#{produtoControle.produtoAtual.und}"></h:inputText> <br/>
-                    Quantidade: <h:inputText value="#{produtoControle.produtoAtual.quantidade}"></h:inputText> <br/>
-                    Cod Barras: <h:inputText value="#{produtoControle.produtoAtual.codBarras}"></h:inputText> <br/>                                   
+               
+               Descrição: <p:inputText  id="descricao" value="#{produtoControle.produtoAtual.descricao}" required="true" requiredMessage="Campo não pode ser vazio" validatorMessage="Não pode ser maior do que 50 caracteres">
+                        <f:validateLength maximum="50"/>
+                    </p:inputText> <p:message for="descricao"/> <br/>               
+                    
+                    Preço: <p:inputText id="preco" value="#{produtoControle.produtoAtual.preco}" required="true" requiredMessage="Campo não pode ser vazio" converterMessage="Utilize o padrão 0,00">                        
+                        <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+                    </p:inputText> <p:message for="preco"/><br/>
+                    
+                    Unidade: <p:inputText id="und" value="#{produtoControle.produtoAtual.und}" required="true" requiredMessage="Campo não pode ser vazio" validatorMessage="Não pode ser maior doq ue 8 caracteres">
+                        <f:validateLength maximum="8"/>
+                    </p:inputText><p:message for="und"/> <br/>
+                    
+                    Quantidade: <p:inputText id="quant" value="#{produtoControle.produtoAtual.quantidade}" required="true" requiredMessage="Campo não pode ser vazio" converterMessage="Só apenas números" validatorMessage="Não pode ser negativo">
+                        <f:convertNumber integerOnly="true" minIntegerDigits="1"/>
+                        <f:validateDoubleRange minimum="0"/>
+                    </p:inputText><p:message for="quant"/> <br/>
+                    
+                    Cod Barras: <p:inputText id="cod" value="#{produtoControle.produtoAtual.codBarras}" required="true" requiredMessage="Campo não pode ser vazio" validatorMessage="Apenas Numeros">
+                        <f:validateRegex pattern="[0-9]+"/>
+                    </p:inputText><p:message for="cod"/> <br/>                                   
                    
-                    <h:commandButton action="#{produtoControle.cadastrarProduto()}" value="CADASTRAR"/>
-                    <h:commandButton action="#{produtoControle.atualizar()}" value="ATUALIZAR" />                   
-                    <h:commandButton action="#{produtoControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>
-                </h:panelGrid>
+                    <h:commandButton action="#{produtoControle.cadastrarProduto()}" value="CADASTRAR"/>                                  
+                    <h:commandButton action="#{produtoControle.cancelarCadastro()}" value="CANCELAR" immediate="true"/>               
            </h:form>
                          
         </div>
@@ -41,42 +54,41 @@ and open the template in the editor.
         <div id="listaProduto">
             
                 <h:form>
-                    <h:panelGrid>
-                        <h:dataTable value="#{produtoControle.listarEstoque()}" var="p" border="1" style="overflow: auto">
-                         <h:column>
+                    
+                        <p:dataTable value="#{produtoControle.listarEstoque()}" var="p" style="overflow: auto">
+                         <p:column>
                             <f:facet name="header">ID</f:facet>
                             #{p.id_produto}
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">Descriçao</f:facet>
                             #{p.descricao}
-                        </h:column>
-                         <h:column>
+                        </p:column>
+                         <p:column>
                             <f:facet name="header">Preço</f:facet>
                             #{p.preco}
-                        </h:column>
-                         <h:column>
+                        </p:column>
+                         <p:column>
                             <f:facet name="header">Unidade</f:facet>
                             #{p.und}
-                        </h:column>
-                         <h:column>
+                        </p:column>
+                         <p:column>
                             <f:facet name="header">Cod Barras</f:facet>
                             #{p.codBarras}
-                        </h:column>
-                         <h:column>
+                        </p:column>
+                         <p:column>
                             <f:facet name="header">Quantidade</f:facet>
                             #{p.quantidade}
-                        </h:column>
-                         <h:column>
+                        </p:column>
+                         <p:column>
                             <f:facet name="header">Editar</f:facet>
                             <h:commandButton action="#{produtoControle.editarProduto(p)}" value="Editar"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">Excluir</f:facet>
                             <h:commandButton action="#{produtoControle.excluir(p)}" value="Excluir"/>
-                        </h:column>
-                    </h:dataTable>  
-                  </h:panelGrid>
+                        </p:column>
+                    </p:dataTable>                    
                 </h:form>                            
             
         </div>
