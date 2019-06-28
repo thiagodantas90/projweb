@@ -13,14 +13,17 @@ and open the template in the editor.
 #topo{
     background-color: gray;
 }
-#produto{
+body{
+    
+}
+#produto,#cliente,#funcionario,#adicionarCesta{
     width: 300px;
     height: 300;
     float: left; 
     background-color: #e1e1e1;
     padding: 10px;
 }
-#listaProduto{
+#listaProduto,#listaFuncionario,#listaCliente,#listaCesta{
     width: 900px;
     height: 800px;
     float: left;

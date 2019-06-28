@@ -5,12 +5,12 @@ D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\ja
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\controlador\LoginControle.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\DAOimplem\IgenericFuncionarioImpl.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\controlador\FuncionarioControle.java
-D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\filtros\LoginFiltro.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\modelos\Login.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\DAOimplem\IgenericProdutoImpl.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\modelos\Produto.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\modelos\Funcionario.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\modelos\ItensCestaPDV.java
+D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\filtros\LoginFiltroAdmin.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\DAOinterface\IgenericVendas.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\controlador\VendasControle.java
 D:\Users\Thiago Dantas\Documents\NetBeansProjects\projweb\projetoweb\src\main\java\DAO\ClienteDAO.java

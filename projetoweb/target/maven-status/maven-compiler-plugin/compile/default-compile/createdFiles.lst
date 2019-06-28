@@ -26,7 +26,6 @@ testes\TesteP_1.class
 controlador\LoginControle.class
 controlador\PDVControle.class
 modelos\Vendas.class
-filtros\LoginFiltro.class
 DAOimplem\IgenericFuncionarioImpl.class
 DAO\FuncionarioDAO.class
 DAO\ClienteDAO.class
